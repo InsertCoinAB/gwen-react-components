@@ -17,6 +17,9 @@ jobs:
 
       - uses: actions/setup-node@v1
 
+      - name: Install
+        run: yarn install
+
       - name: Test Types
         run: yarn test:types
 
@@ -27,7 +30,7 @@ jobs:
         run: yarn test:prettier
 
       - name: Build
-        run: yarn Build
+        run: yarn build
 
       - name: Build Docz
         run: yarn docz:build
