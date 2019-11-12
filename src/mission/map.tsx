@@ -43,7 +43,7 @@ export class MissionMap extends React.PureComponent<Props, State> {
 							<List
 								ref={this.list}
 								style={{ outline: "none", overflowY: "scroll", paddingRight: "20px", userSelect: "none" }}
-								containerStyle={{ width: `${width + 20}px` }}
+								containerStyle={{ width: `${width}px` }}
 								height={height}
 								rowHeight={width / 2}
 								width={width + 20}
