@@ -9,6 +9,7 @@ export interface AchievementData {
 	readonly icon?: string
 	readonly completed?: Date
 	readonly rewards: RewardData[]
+	readonly cta?: string
 }
 
 export interface AchievementTierData {
