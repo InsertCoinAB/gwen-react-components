@@ -26,7 +26,7 @@ export class ModuleWrapperLeft extends React.PureComponent<ModuleWrapperProps> {
 	render() {
 		return (
 			<ModuleWrapperLeftDiv>
-				{this.props.title && <WrapperTitle data-cy="mission-number">{this.props.title}</WrapperTitle>}
+				{this.props.title && <WrapperTitle>{this.props.title}</WrapperTitle>}
 				{!!this.props.children && this.props.children}
 			</ModuleWrapperLeftDiv>
 		)

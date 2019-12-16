@@ -23,7 +23,7 @@ export function MissionModule(props: MissionModuleProps) {
 			<ModuleWrapperLeft
 				title={
 					<>
-						{props.translations.mission}: <MissionNumber>{props.mission?.missionNumber}</MissionNumber>
+						{props.translations.mission}: <MissionNumber data-cy="mission-number">{props.mission?.missionNumber}</MissionNumber>
 					</>
 				}
 			>
