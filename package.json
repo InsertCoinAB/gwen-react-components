@@ -38,7 +38,7 @@
 		"@babel/plugin-proposal-optional-chaining": "^7.7.4",
 		"@types/jest": "24.0.23",
 		"@types/node": "12.12.14",
-		"@types/react": "16.9.14",
+		"@types/react": "16.9.17",
 		"@types/react-dom": "16.9.4",
 		"@types/react-virtualized": "^9.21.5",
 		"@types/styled-components": "^4.4.0",
