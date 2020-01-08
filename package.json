@@ -52,7 +52,7 @@
 		"eslint-config-react-app": "^5.0.2",
 		"eslint-plugin-jest": "^23.3.0",
 		"eslint-plugin-promise": "^4.2.1",
-		"eslint-plugin-unicorn": "^14.0.1",
+		"eslint-plugin-unicorn": "^15.0.1",
 		"jest": "^24.9.0",
 		"prettier": "^1.19.1",
 		"react-docgen-typescript-loader": "^3.6.0",
