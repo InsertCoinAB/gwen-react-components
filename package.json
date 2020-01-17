@@ -43,7 +43,7 @@
 		"@types/react-virtualized": "^9.21.7",
 		"@types/styled-components": "^4.4.0",
 		"@typescript-eslint/eslint-plugin": "^2.15.0",
-		"@typescript-eslint/parser": "^2.10.0",
+		"@typescript-eslint/parser": "^2.16.0",
 		"babel-loader": "^8.0.6",
 		"babel-plugin-styled-components": "^1.10.6",
 		"docz": "^2.2.0",
