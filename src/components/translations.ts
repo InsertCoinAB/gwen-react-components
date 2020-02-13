@@ -3,6 +3,7 @@ export interface GenericTranslation {
 	xp: string
 	coin: string
 	vipcurrency: string
+	"team-xp": string
 	ctaButton: string
 }
 
@@ -11,5 +12,6 @@ export const GenericTranslations: GenericTranslation = {
 	xp: "Experience",
 	coin: "Coins",
 	vipcurrency: "Crystals",
+	"team-xp": "Team Experience",
 	ctaButton: "Go there",
 }
