@@ -58,7 +58,7 @@
 		"eslint-plugin-unicorn": "^16.1.1",
 		"jest": "^25.1.0",
 		"prettier": "^1.19.1",
-		"react-docgen-typescript-loader": "^3.6.0",
+		"react-docgen-typescript-loader": "^3.7.0",
 		"react-scripts": "3.4.0",
 		"trim-right": "^1.0.1",
 		"typescript": "3.8.3"
