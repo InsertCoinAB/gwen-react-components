@@ -16,16 +16,10 @@ Use this component in Embedded views
 <Playground>
 	<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 		<div style={{ width: "30%" }}>
-			<AchievementBoxComponent
-				achievement={AchievementSuperGiver}
-				open={(achievement) => console.log(achievement)}
-			/>
+			<AchievementBoxComponent achievement={AchievementSuperGiver} open={(achievement) => console.log(achievement)} />
 		</div>
 		<div style={{ width: "30%" }}>
-			<AchievementBoxComponent
-				achievement={AchievementSharingIsCaring}
-				open={(achievement) => console.log(achievement)}
-			/>
+			<AchievementBoxComponent achievement={AchievementSharingIsCaring} open={(achievement) => console.log(achievement)} />
 		</div>
 	</div>
 </Playground>

@@ -15,29 +15,35 @@ Use this component to integrate a Mission Module
 
 <Playground>
 	<div style={{ width: "100%", maxWidth: "550px", height: "650px", margin: "auto" }}>
-		<MissionModuleComponent themes={[SkyTheme]} mission={{
-			completed: false,
-			missionNumber: 42,
-			rewards: [
-				{ currency: "coin", amount: 20 }
-			],
-			objectives: [{
-				title: "Hug a Friend",
-				amount: 3,
-				completed: 2,
-				cta: "https://insertcoin.se/what-is-gwen/"
-			}, {
-				title: "Research GWEN",
-				amount: 1,
-				completed: 0,
-				cta: "https://insertcoin.se/what-is-gwen/"
-			}, {
-				title: "Contribute to Open Source",
-				amount: 10,
-				completed: 7,
-				cta: "https://insertcoin.se/what-is-gwen/"
-			}]
-		}} select={(mission) => console.log(mission)} />
+		<MissionModuleComponent
+			themes={[SkyTheme]}
+			mission={{
+				completed: false,
+				missionNumber: 42,
+				rewards: [{ currency: "coin", amount: 20 }],
+				objectives: [
+					{
+						title: "Hug a Friend",
+						amount: 3,
+						completed: 2,
+						cta: "https://insertcoin.se/what-is-gwen/",
+					},
+					{
+						title: "Research GWEN",
+						amount: 1,
+						completed: 0,
+						cta: "https://insertcoin.se/what-is-gwen/",
+					},
+					{
+						title: "Contribute to Open Source",
+						amount: 10,
+						completed: 7,
+						cta: "https://insertcoin.se/what-is-gwen/",
+					},
+				],
+			}}
+			select={(mission) => console.log(mission)}
+		/>
 	</div>
 </Playground>
 
