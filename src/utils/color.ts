@@ -31,9 +31,9 @@ export class Color {
 		if (color.slice(0, 3) === "rgb") {
 			const match = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i)
 			if (match && match.length === 4) {
-				rgb.r = parseInt(match[1], 10)
-				rgb.g = parseInt(match[2], 10)
-				rgb.b = parseInt(match[3], 10)
+				rgb.r = Number.parseInt(match[1], 10)
+				rgb.g = Number.parseInt(match[2], 10)
+				rgb.b = Number.parseInt(match[3], 10)
 			}
 		} else {
 			let c = color.replace("#", "")
@@ -44,9 +44,9 @@ export class Color {
 							.map((v) => v + v)
 							.join("")
 					: c
-			rgb.r = parseInt(c.slice(0, 2), 16)
-			rgb.g = parseInt(c.slice(2, 4), 16)
-			rgb.b = parseInt(c.slice(4, 6), 16)
+			rgb.r = Number.parseInt(c.slice(0, 2), 16)
+			rgb.g = Number.parseInt(c.slice(2, 4), 16)
+			rgb.b = Number.parseInt(c.slice(4, 6), 16)
 		}
 		return rgb
 	}
