@@ -18,7 +18,7 @@ export interface LeaderboardModuleProps {
 	translations: LeaderboardTranslation
 	timespan: "alltime" | "weekly"
 	select: (column: string, timespan: "alltime" | "weekly") => void
-	updateNickname: (nickname: string) => void
+	updateNickname?: (nickname: string) => void
 }
 type State = {
 	editing: boolean
@@ -29,47 +29,47 @@ export class LeaderboardModule extends React.PureComponent<LeaderboardModuleProp
 	state: State = { editing: false }
 
 	render() {
+		const { active, columns, select, timespan, translations, updateNickname, currentUser, leaderboard } = this.props
 		return (
 			<ModuleWrapper>
 				<Wrapper>
 					<TopWrapper>
 						<Tabs
-							items={this.props.columns.map((column) => ({ text: this.props.translations[column], value: column }))}
-							value={this.props.active}
-							onChange={(column) => this.props.select(column, this.props.timespan)}
+							items={columns.map((column) => ({ text: translations[column], value: column }))}
+							value={active}
+							onChange={(column) => select(column, timespan)}
 						/>
-						<LeaderboardList leaderboard={this.props.leaderboard} translations={this.props.translations} />
+						<LeaderboardList leaderboard={leaderboard} translations={translations} />
 					</TopWrapper>
 					<BottomWrapper>
 						<PlayerScoreWrapper>
-							<b>{this.props.translations.myScore}:</b>
-							<PlayerName>
-								<PlayerNameInput
-									data-cy="leaderboard-input-edit"
-									value={this.state.editingNickname}
-									disabled={!this.state.editing}
-									onChange={(event) => this.setState({ editingNickname: event.target.value })}
-									placeholder={this.props.translations.anonymous}
-								/>
-								{this.state.editing ? (
-									<EditButton data-cy="leaderboard-button-save" onClick={() => this.props.updateNickname(this.state.editingNickname || "")}>
-										<img src="https://gwen.insertcoin.se/widget/images/icons/save.svg" alt="checkmark" />
-									</EditButton>
-								) : (
-									<EditButton data-cy="leaderboard-button-edit" onClick={() => this.setState({ editing: true })}>
-										<Edit />
-									</EditButton>
-								)}
-								<span data-cy="leaderboard-current-user-score">{this.props.currentUser?.score ?? 0}</span>
-							</PlayerName>
+							<b>{translations.myScore}:</b>
+							{updateNickname && (
+								<PlayerName>
+									<PlayerNameInput
+										data-cy="leaderboard-input-edit"
+										value={this.state.editingNickname}
+										disabled={!this.state.editing}
+										onChange={(event) => this.setState({ editingNickname: event.target.value })}
+										placeholder={translations.anonymous}
+									/>
+									{this.state.editing ? (
+										<EditButton data-cy="leaderboard-button-save" onClick={() => updateNickname(this.state.editingNickname || "")}>
+											<img src="https://gwen.insertcoin.se/widget/images/icons/save.svg" alt="checkmark" />
+										</EditButton>
+									) : (
+										<EditButton data-cy="leaderboard-button-edit" onClick={() => this.setState({ editing: true })}>
+											<Edit />
+										</EditButton>
+									)}
+									<span data-cy="leaderboard-current-user-score">{currentUser?.score ?? 0}</span>
+								</PlayerName>
+							)}
 						</PlayerScoreWrapper>
 						<TimeToggle>
-							<TimeToggleTitleLeft active={this.props.timespan === "alltime"}>{this.props.translations.alltime}</TimeToggleTitleLeft>
-							<Switch
-								onChange={() => this.props.select(this.props.active, this.props.timespan === "alltime" ? "weekly" : "alltime")}
-								value={this.props.timespan !== "alltime"}
-							/>
-							<TimeToggleTitleRight active={this.props.timespan === "weekly"}>{this.props.translations.weekly}</TimeToggleTitleRight>
+							<TimeToggleTitleLeft active={timespan === "alltime"}>{translations.alltime}</TimeToggleTitleLeft>
+							<Switch onChange={() => select(active, timespan === "alltime" ? "weekly" : "alltime")} value={timespan !== "alltime"} />
+							<TimeToggleTitleRight active={timespan === "weekly"}>{translations.weekly}</TimeToggleTitleRight>
 						</TimeToggle>
 					</BottomWrapper>
 				</Wrapper>

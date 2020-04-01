@@ -5,6 +5,8 @@ import { LeaderboardList } from "./list"
 import { LeaderboardModule, LeaderboardModuleProps } from "./module"
 import { LeaderboardTranslation, LeaderboardTranslations } from "./translations"
 
+export * from "../types/leaderboard"
+
 type LeaderboardProps = {
 	leaderboard: LeaderboardRow[]
 	translations: Partial<LeaderboardTranslation>
