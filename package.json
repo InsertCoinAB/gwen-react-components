@@ -49,7 +49,7 @@
 		"@typescript-eslint/parser": "^2.26.0",
 		"babel-loader": "^8.0.6",
 		"babel-plugin-styled-components": "^1.10.7",
-		"docz": "^2.2.0",
+		"docz": "^2.3.0",
 		"eslint-config-airbnb-typescript": "^7.2.0",
 		"eslint-config-prettier": "^6.10.1",
 		"eslint-config-react-app": "^5.2.0",
