@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { DefaultTheme } from "styled-components"
 import { Placement } from "../icons/leaderboard/placement"
-import { LeaderboardRow } from "../types/leaderboard"
+import { LeaderboardRow } from "../types"
 import { LeaderboardTranslation } from "./translations"
 
 type Props = {

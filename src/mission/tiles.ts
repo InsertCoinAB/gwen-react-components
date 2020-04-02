@@ -1,4 +1,4 @@
-import { MissionThemeData } from "../types/mission"
+import { MissionThemeData } from "../types"
 import { SeedRandom } from "../utils/seed-random"
 
 export class Tiles {

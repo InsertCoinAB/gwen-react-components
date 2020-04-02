@@ -3,7 +3,7 @@ import { AutoSizer, CellMeasurer, CellMeasurerCache, List, ScrollParams } from "
 import styled from "styled-components"
 import { ScrollArrows } from "../components/scroll-arrows"
 import { ModuleWrapperFull } from "../components/wrapper"
-import { AchievementData } from "../types/achievement"
+import { AchievementData } from "../types"
 import { AchievementBox } from "./box"
 import { AchievementTranslation } from "./translations"
 

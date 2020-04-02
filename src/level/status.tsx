@@ -1,6 +1,6 @@
 import React from "react"
 import { TabsWrapper } from "../components/wrapper"
-import { LevelLog, ModuleLevelUserBehaviorCooldownData } from "../types/level"
+import { LevelLog, ModuleLevelUserBehaviorCooldownData } from "../types"
 import { CooldownLog } from "./cooldown-log"
 import { EventLog } from "./event-log"
 import { LevelTranslation } from "./translations"

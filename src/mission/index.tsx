@@ -1,6 +1,6 @@
 import React from "react"
 import { WrapperComponent } from "../theme"
-import { MissionThemeData } from "../types/mission"
+import { MissionThemeData } from "../types"
 import { MissionMap } from "./map"
 import { MissionModule, MissionModuleProps } from "./module"
 import { MissionTranslations } from "./translations"

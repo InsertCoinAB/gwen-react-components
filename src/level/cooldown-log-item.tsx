@@ -1,8 +1,6 @@
 import React, { PureComponent } from "react"
 import styled from "styled-components"
-import { SECOND_MS } from "../types/clock"
-import { dateDHMS } from "../types/date-dhms"
-import { ModuleLevelUserBehaviorCooldownData } from "../types/level"
+import { dateDHMS, ModuleLevelUserBehaviorCooldownData, SECOND_MS } from "../types"
 
 interface Props {
 	data: ModuleLevelUserBehaviorCooldownData

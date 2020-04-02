@@ -2,7 +2,7 @@ import React from "react"
 import styled, { DefaultTheme } from "styled-components"
 import { Edit } from "../icons/edit"
 import { GwenTheme } from "../theme"
-import { LevelAvatarData, LevelData } from "../types/level"
+import { LevelAvatarData, LevelData } from "../types"
 import { LevelBadge } from "./level-badge"
 import { LevelTranslation } from "./translations"
 

@@ -3,7 +3,7 @@ import styled, { DefaultTheme } from "styled-components"
 import { Button } from "../components/button"
 import { ProgressBar } from "../components/progress-bar"
 import { Check } from "../icons/check"
-import { AchievementData } from "../types/achievement"
+import { AchievementData } from "../types"
 import { getAchievementIcon } from "./icon"
 import { AchievementTranslations } from "./translations"
 

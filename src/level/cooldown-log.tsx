@@ -2,7 +2,7 @@ import React from "react"
 import { AutoSizer, CellMeasurer, CellMeasurerCache, List, ScrollParams } from "react-virtualized"
 import styled from "styled-components"
 import { ScrollArrows } from "../components/scroll-arrows"
-import { ModuleLevelUserBehaviorCooldownData } from "../types/level"
+import { ModuleLevelUserBehaviorCooldownData } from "../types"
 import { CooldownLogItem } from "./cooldown-log-item"
 
 interface Props {

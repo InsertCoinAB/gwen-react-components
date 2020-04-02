@@ -1,11 +1,9 @@
 import React from "react"
 import { WrapperComponent } from "../theme"
-import { LeaderboardRow } from "../types/leaderboard"
+import { LeaderboardRow } from "../types"
 import { LeaderboardList } from "./list"
 import { LeaderboardModule, LeaderboardModuleProps } from "./module"
 import { LeaderboardTranslation, LeaderboardTranslations } from "./translations"
-
-export * from "../types/leaderboard"
 
 type LeaderboardProps = {
 	leaderboard: LeaderboardRow[]

@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Rewards } from "../components/reward"
-import { LevelAvatarData, LevelData } from "../types/level"
-import { RewardIcons } from "../types/reward"
+import { LevelAvatarData, LevelData, RewardIcons } from "../types"
 import { LevelCircle } from "./level-circle"
 import { LevelTranslation } from "./translations"
 

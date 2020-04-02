@@ -3,7 +3,7 @@ import { AutoSizer, List, ScrollParams } from "react-virtualized"
 import styled, { DefaultTheme } from "styled-components"
 import { ScrollArrows } from "../components/scroll-arrows"
 import { Check } from "../icons/check"
-import { LevelAvatarData } from "../types/level"
+import { LevelAvatarData } from "../types"
 
 export interface SelectAvatarProps {
 	current?: string

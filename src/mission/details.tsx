@@ -2,8 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Objective } from "../components/objective"
 import { Rewards } from "../components/reward"
-import { MissionData } from "../types/mission"
-import { RewardIcons } from "../types/reward"
+import { MissionData, RewardIcons } from "../types"
 import { MissionTranslation } from "./translations"
 
 type Props = {

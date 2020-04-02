@@ -1,7 +1,6 @@
 import React from "react"
 import { ModuleWrapper, ModuleWrapperLeft, ModuleWrapperRight } from "../components/wrapper"
-import { LevelAvatarData, LevelData, LevelLog, ModuleLevelUserBehaviorCooldownData } from "../types/level"
-import { RewardIcons } from "../types/reward"
+import { LevelAvatarData, LevelData, LevelLog, ModuleLevelUserBehaviorCooldownData, RewardIcons } from "../types"
 import { Profile } from "./profile"
 import { Status } from "./status"
 import { LevelTranslation } from "./translations"

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Currency, RewardData } from "../../types/reward"
+import { Currency, RewardData } from "../../types"
 import { GenericTranslation } from "../translations"
 import { Reward } from "./wrapper"
 

@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { ProgressBar } from "../components/progress-bar"
-import { AchievementData } from "../types/achievement"
-import { RewardIcons } from "../types/reward"
+import { AchievementData, RewardIcons } from "../types"
 import { getAchievementIcon } from "./icon"
 
 interface Props {

@@ -1,7 +1,6 @@
 import React from "react"
 import { WrapperComponent } from "../theme"
-import { AchievementData } from "../types/achievement"
-import { RewardIcons } from "../types/reward"
+import { AchievementData, RewardIcons } from "../types"
 import { AchievementBox } from "./box"
 import { AchievementModule } from "./module"
 import { AchievementTiers } from "./tiers"

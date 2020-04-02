@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { DefaultTheme } from "styled-components"
 import { Check } from "../../icons/check"
-import { ObjectiveData } from "../../types/objective"
+import { ObjectiveData } from "../../types"
 import { ProgressBar } from "../progress-bar"
 import { GenericTranslations } from "../translations"
 

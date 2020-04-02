@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { DefaultTheme } from "styled-components"
-import { Currency } from "../../types/reward"
+import { Currency } from "../../types"
 
 interface Props {
 	type: Currency

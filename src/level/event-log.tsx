@@ -2,7 +2,7 @@ import React from "react"
 import { AutoSizer, Index, List, ScrollParams } from "react-virtualized"
 import styled, { DefaultTheme } from "styled-components"
 import { ScrollArrows } from "../components/scroll-arrows"
-import { LevelLog, ModuleType } from "../types/level"
+import { LevelLog, ModuleType } from "../types"
 
 type Props = {
 	log: LevelLog[]

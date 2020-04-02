@@ -1,7 +1,6 @@
 import React from "react"
 import { WrapperComponent } from "../theme"
-import { LevelAvatarData, LevelData, LevelLog, ModuleLevelUserBehaviorCooldownData } from "../types/level"
-import { RewardIcons } from "../types/reward"
+import { LevelAvatarData, LevelData, LevelLog, ModuleLevelUserBehaviorCooldownData, RewardIcons } from "../types"
 import { LevelBadge } from "./level-badge"
 import { LevelCircle } from "./level-circle"
 import { LevelModule } from "./module"
