@@ -26,7 +26,6 @@ export enum ModuleEnum {
 	"leaderboard",
 	"achievement",
 	"challenge",
-	"survey",
 	"selfreporting",
 }
 
