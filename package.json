@@ -45,7 +45,7 @@
 		"@types/react-dom": "^16.9.7",
 		"@types/react-virtualized": "^9.21.9",
 		"@types/styled-components": "^4.4.3",
-		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"@typescript-eslint/eslint-plugin": "^2.31.0",
 		"@typescript-eslint/parser": "^2.31.0",
 		"babel-loader": "^8.0.6",
 		"babel-plugin-styled-components": "^1.10.7",
