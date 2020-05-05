@@ -24,7 +24,7 @@ export class EventLog extends React.Component<Props, State> {
 		}
 	}
 
-	getModule(log: LevelLog): ModuleType | null {
+	getModule(log: LevelLog): ModuleType | undefined {
 		if (log.type === "GWEN_LEVEL_UP") {
 			return "level"
 		}
