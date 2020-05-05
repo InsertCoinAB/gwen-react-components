@@ -37,7 +37,7 @@ export class EventLog extends React.Component<Props, State> {
 		if (log.type === "GWEN_CHALLENGE_COMPLETE") {
 			return "challenge"
 		}
-		return null
+		return undefined
 	}
 
 	getRowHeight(item: Index) {

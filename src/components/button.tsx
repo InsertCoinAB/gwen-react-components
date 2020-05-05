@@ -24,7 +24,7 @@ export class Button extends React.PureComponent<Props> {
 		return (
 			<ButtonWrapper
 				{...restprops}
-				onClick={(event) => (!this.props.disabled && onClick ? onClick(event) : null)}
+				onClick={(event) => (!this.props.disabled && onClick ? onClick(event) : undefined)}
 				data-cy={`${cyString ? `${cyString}-` : ""}button`}
 			/>
 		)

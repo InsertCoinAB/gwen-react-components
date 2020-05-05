@@ -44,7 +44,7 @@ export class MissionMapTile extends React.PureComponent<Props> {
 						</MissionPath>
 						<Dot
 							data-cy={`mission-select-${missionNumber}`}
-							onClick={() => (!this.props.disabled && missionNumber ? this.props.select(missionNumber) : null)}
+							onClick={() => (!this.props.disabled && missionNumber ? this.props.select(missionNumber) : undefined)}
 							size={size}
 							current={this.props.current}
 							disabled={this.props.disabled}
