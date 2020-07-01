@@ -1,0 +1,30 @@
+---
+name: AchievementCard
+route: /achievement/card
+menu: Achievement
+edit: false
+---
+
+import { Playground, Props } from "docz"
+import { AchievementCard } from "../../src/google-classroom"
+import { AchievementSuperGiver, AchievementSharer, AchievementFoodRun } from "./data"
+
+# Achievement Box Component
+
+Use this component in Embedded views
+
+<Playground>
+	<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+		<div style={{ width: "30%" }}>
+			<AchievementCard data={AchievementFoodRun} open={(data) => console.log(data)} />
+		</div>
+		<div style={{ width: "30%" }}>
+			<AchievementCard data={AchievementSharer} open={(data) => console.log(data)} />
+		</div>
+		<div style={{ width: "30%" }}>
+			<AchievementCard data={AchievementSuperGiver} openDetails={(data) => console.log(data)} />
+		</div>
+	</div>
+</Playground>
+
+<Props of={AchievementCard} />
