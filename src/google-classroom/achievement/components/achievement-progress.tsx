@@ -31,7 +31,7 @@ export const AchievementProgress = (props: Props) => {
 
 const ProgressBar = styled.div`
 	flex: 1;
-	height: 4px;
+	height: 6px;
 	background: rgba(13, 201, 121, 0.25);
 	border-radius: 2px;
 	&:not(:last-child) {
@@ -45,7 +45,7 @@ interface FillProps {
 }
 
 const ProgressFill = styled.div`
-	height: 4px;
+	height: 100%;
 	border-radius: 2px;
 	width: ${(props: FillProps) => props.fill}%;
 	transition: width 0.2s ease-in-out;

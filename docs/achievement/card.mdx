@@ -15,13 +15,13 @@ Use this component in Embedded views
 
 <Playground>
 	<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-		<div style={{ width: "30%" }}>
+		<div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
 			<AchievementCard data={AchievementFoodRun} open={(data) => console.log(data)} />
 		</div>
-		<div style={{ width: "30%" }}>
+		<div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
 			<AchievementCard data={AchievementSharer} open={(data) => console.log(data)} />
 		</div>
-		<div style={{ width: "30%" }}>
+		<div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
 			<AchievementCard data={AchievementSuperGiver} openDetails={(data) => console.log(data)} />
 		</div>
 	</div>

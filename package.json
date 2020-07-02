@@ -17,7 +17,7 @@
 		"README.md"
 	],
 	"scripts": {
-		"docz:dev": "docz dev",
+		"docz:dev": "docz dev --port=9003",
 		"docz:build": "docz build && cp ./favicon.ico .docz/dist && cp .docz/dist/index.html .docz/dist/404.html",
 		"dev": "yarn build:ts && yarn build:types",
 		"build": "rm -rf dist && yarn build:ts && yarn build:types",
