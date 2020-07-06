@@ -1,0 +1,25 @@
+---
+name: AchievementDetails
+route: /achievement/details
+menu: Achievement
+edit: false
+---
+
+import { Playground, Props } from "docz"
+import { AchievementDetails } from "../../src/google-classroom"
+import { AchievementSharer } from "./data"
+
+# Achievement Box Component
+
+Use this component in Embedded views
+
+<Playground>
+    <div style={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", height: "700px"}}>
+        <div style={{ width: "400px", height: "500px", background: "#fff", borderRadius: "10px", boxShadow: "0px 4px 6px 6px rgba(0, 0, 0, 0.25)" }}>
+            <AchievementDetails data={AchievementSharer} translations={{ rewards: "Rewards" }} />
+        </div>
+    </div>
+
+</Playground>
+
+<Props of={AchievementDetails} />

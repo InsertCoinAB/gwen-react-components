@@ -55,6 +55,17 @@ export const AchievementSharingIsCaring = {
 	],
 }
 
+export const AchievementFoodRun = {
+	title: "Food Run",
+	tiers: [
+		{
+			amount: 3,
+			progress: 2,
+			icon: "https://gwen.insertcoin.se/widget/images/action-icons/FallbackPlaceholder.svg",
+		},
+	],
+}
+
 export const Achievements = [
 	{
 		title: "Super Giver",

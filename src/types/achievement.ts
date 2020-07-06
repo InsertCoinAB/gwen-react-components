@@ -2,6 +2,7 @@ import { RewardData } from "./reward"
 
 export interface AchievementData {
 	readonly id: string
+	readonly behaviorId: string
 	readonly active: boolean
 	readonly tiers: AchievementTierData[]
 	readonly tag?: string
