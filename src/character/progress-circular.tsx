@@ -8,15 +8,38 @@ export type ProgressCircleProps = {
 	avatar: string
 	shape?: StepShape
 	stroke?: { primary: string; background?: string }
-} & React.HTMLAttributes<HTMLDivElement>
+}
 
-export class ProgressCircle extends React.PureComponent<ProgressCircleProps> {
-	private MISSING = 0.06
+type State = {
+	step: number
+	progress: number
+	shine?: boolean
+}
+
+export class ProgressCircle extends React.PureComponent<ProgressCircleProps, State> {
+	private MISSING = 0.08
 	private RADIUS = 47.5
+	state: State = { step: this.props.step || 0, progress: this.props.progress || 0 }
 	/* eslint-disable-next-line react/static-property-placement */
 	static defaultProps: Partial<ProgressCircleProps> = {
 		shape: "circle",
 		stroke: { primary: "#5cc580" },
+	}
+
+	componentDidUpdate(prevProps: Readonly<ProgressCircleProps>) {
+		if (this.props.progress !== prevProps.progress) {
+			this.progressUpdate(prevProps)
+		}
+	}
+
+	progressUpdate(prevProps: Readonly<ProgressCircleProps>) {
+		if (this.props.progress > prevProps.progress) {
+			this.setState({ step: this.props.step, progress: this.props.progress })
+		} else {
+			this.setState({ progress: 1 })
+			setTimeout(() => this.setState({ step: this.props.step, progress: 0, shine: true }), 1000)
+			setTimeout(() => this.setState({ progress: this.props.progress, shine: false }), 2000)
+		}
 	}
 
 	private perimeter(radius: number) {
@@ -24,26 +47,28 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps> {
 	}
 
 	render() {
-		const { step, progress, avatar, shape, stroke, ...wrapperProps } = this.props as Required<ProgressCircleProps>
+		const { avatar, shape, stroke, ...wrapperProps } = this.props as Required<ProgressCircleProps>
 		return (
 			<Wrapper {...wrapperProps}>
-				<ProgressMeter viewBox="-50 -50 100 100">
-					<circle r={this.RADIUS} fill="none" strokeWidth="5" stroke={stroke?.background} />
-					<circle
-						transform={`rotate(${90 + this.MISSING * 180})`}
-						r={this.RADIUS}
-						strokeWidth="5"
-						stroke={stroke?.primary}
-						fill="none"
-						strokeLinecap="round"
-						strokeDasharray={this.perimeter(this.RADIUS)}
-						strokeDashoffset={this.perimeter(this.RADIUS) - progress * (1 - this.MISSING) * this.perimeter(this.RADIUS)}
-						style={{ transition: `stroke-dashoffset 1s ease-in-out` }}
-					/>
-				</ProgressMeter>
-				<ProgressImage src={avatar} alt="avatar" />
+				<Circle shine={this.state.shine}>
+					<ProgressMeter viewBox="-50 -50 100 100">
+						<circle r={this.RADIUS} fill="none" strokeWidth="5" stroke={stroke?.background} />
+						<circle
+							transform={`rotate(${90 + this.MISSING * 180})`}
+							r={this.RADIUS}
+							strokeWidth="5"
+							stroke={stroke?.primary}
+							fill="none"
+							strokeLinecap="round"
+							strokeDasharray={this.perimeter(this.RADIUS)}
+							strokeDashoffset={this.perimeter(this.RADIUS) - this.state.progress * (1 - this.MISSING) * this.perimeter(this.RADIUS)}
+							style={{ transition: `stroke-dashoffset ${this.state.progress === 0 ? 0 : 1}s ease-in-out` }}
+						/>
+					</ProgressMeter>
+					<ProgressImage src={avatar} alt="avatar" />
+				</Circle>
 				<StepWrapper>
-					<StepIcon step={step} shape={shape} />
+					<StepIcon step={this.state.step} shape={shape} />
 				</StepWrapper>
 			</Wrapper>
 		)
@@ -52,7 +77,44 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps> {
 
 const Wrapper = styled.div`
 	position: relative;
-	padding-bottom: 12.5px;
+	display: flex;
+	justify-content: center;
+`
+const Circle = styled.div`
+	position: relative;
+	overflow: hidden;
+	border-radius: 100%;
+
+	:after {
+		content: "";
+		position: absolute;
+		top: -110%;
+		left: -210%;
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+		transform: rotate(45deg);
+		background: rgba(255, 255, 255, 0);
+		background: linear-gradient(
+			to right,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0) 70%,
+			rgba(255, 255, 255, 0.25) 77%,
+			rgba(255, 255, 255, 0) 92%,
+			rgba(255, 255, 255, 0) 100%
+		);
+		${(p: { shine?: boolean }) =>
+			p.shine
+				? `
+		opacity: 1;
+		top: -30%;
+		left: -30%;
+		transition-property: left, top, opacity;
+		transition-duration: 0.7s, 0.7s, 0.15s;
+		transition-timing-function: ease;
+		`
+				: ""}
+	}
 `
 const ProgressMeter = styled.svg`
 	display: block;
@@ -74,5 +136,6 @@ const StepWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	bottom: 0px;
+	bottom: -15%;
+	height: 40%;
 `
