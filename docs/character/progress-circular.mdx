@@ -13,12 +13,28 @@ import { ProgressCircle } from "../../src"
 Use this component to ....
 
 <Playground>
-	<div style={{ display: "flex" }}>
-		<ProgressCircle step={1} shape="triangle" progress={0.2} avatar="/public/atom.svg" stroke={{primary: "#4182b7"}} style={{margin: "0 20px"}} />
-		<ProgressCircle step={7} shape="shield" progress={0.4} avatar="/public/avatar.svg" stroke={{primary: "#a57af7", background: "#6946aa"}} style={{margin: "0 20px"}} />
-		<ProgressCircle step={13} shape="circle" progress={0.55} avatar="/public/bunny.svg" style={{margin: "0 20px"}} />
-		<ProgressCircle step={42} shape="star" progress={0.7} avatar="/public/book.svg" stroke={{primary: "#a57af7"}} style={{margin: "0 20px"}} />
-		<ProgressCircle step={242} shape="square" progress={0.9} avatar="/public/phone.svg" stroke={{primary: "#fce763"}} style={{margin: "0 20px"}} />
+	<div style={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
+		<ProgressCircle step={1} shape="triangle" progress={0.2} avatar="/public/atom.svg" stroke={{ primary: "#4182b7" }} size={80} style={{ margin: "0 20px" }} />
+		<ProgressCircle
+			step={7}
+			shape="shield"
+			progress={0.4}
+			avatar="/public/avatar.svg"
+			size={160}
+			stroke={{ primary: "#a57af7", background: "#6946aa" }}
+			style={{ margin: "0 20px" }}
+		/>
+		<ProgressCircle step={13} shape="circle" progress={0.55} avatar="/public/bunny.svg" style={{ margin: "0 20px" }} />
+		<ProgressCircle step={42} shape="star" size={120} progress={0.7} avatar="/public/book.svg" stroke={{ primary: "#a57af7" }} style={{ margin: "0 20px" }} />
+		<ProgressCircle
+			step={242}
+			shape="square"
+			size={150}
+			progress={0.9}
+			avatar="/public/phone.svg"
+			stroke={{ primary: "#fce763" }}
+			style={{ margin: "0 20px" }}
+		/>
 	</div>
 	<br />
 </Playground>
@@ -32,13 +48,24 @@ Use this component to ....
 		const [state, setState] = React.useState({ step: 1, progress: 0 })
 		return (
 			<React.Fragment>
-				<button onClick={() => setState((s) => {
-					const p = Math.random()
-					return { progress: p, step: p < s.progress ? s.step + 1 : s.step }
-				})}>
+				<button
+					onClick={() =>
+						setState((s) => {
+							const p = Math.random()
+							return { progress: p, step: p < s.progress ? s.step + 1 : s.step }
+						})
+					}
+				>
 					Gain Experience
 				</button>
-				<ProgressCircle step={state.step} shape="shield" progress={state.progress} avatar="/public/bunny.svg" stroke={{primary: "#a57af7"}} style={{marginBottom: "50px"}} />
+				<ProgressCircle
+					step={state.step}
+					shape="shield"
+					progress={state.progress}
+					avatar="/public/bunny.svg"
+					stroke={{ primary: "#a57af7" }}
+					style={{ marginBottom: "50px" }}
+				/>
 			</React.Fragment>
 		)
 	}}

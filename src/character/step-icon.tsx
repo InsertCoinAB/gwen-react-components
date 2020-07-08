@@ -77,7 +77,8 @@ const IconText = styled.span`
 	bottom: 0;
 	left: 0;
 	right: 0;
-	font-size: 16px;
+	font-size: 14px;
+	font-weight: 700;
 	color: ${(p: { shape: StepShape }) => (p.shape === "shield" ? "#333" : "#fff")};
 	display: flex;
 	justify-content: center;
