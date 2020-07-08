@@ -1,0 +1,27 @@
+---
+name: ShopItemCard
+route: /shop/card
+menu: Shop
+edit: false
+---
+
+import { Playground, Props } from "docz"
+import { ShopItemCard } from "../../src/google-classroom"
+import { ShopItemBoost, ShopItemShirt } from "./data"
+
+# Shop Item Card Component
+
+Use this component to display a grid of shop items
+
+<Playground>
+	<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+		<div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+			<ShopItemCard data={ShopItemBoost} openDetails={(data) => console.log(data)} />
+		</div>
+		<div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+			<ShopItemCard data={ShopItemShirt} openDetails={(data) => console.log(data)} />
+		</div>
+	</div>
+</Playground>
+
+<Props of={ShopItemCard} />

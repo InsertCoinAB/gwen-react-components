@@ -18,19 +18,6 @@ export interface LevelLog {
 
 export type ActionType = string
 
-export enum ModuleEnum {
-	"tutorial",
-	"mission",
-	"level",
-	"shop",
-	"leaderboard",
-	"achievement",
-	"challenge",
-	"selfreporting",
-}
-
-export type ModuleType = keyof typeof ModuleEnum
-
 export interface ModuleLevelUserBehaviorCooldownData {
 	readonly behaviorName: string
 	readonly cooldownInMS: number
