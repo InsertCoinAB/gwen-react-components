@@ -50,9 +50,9 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps, Sta
 	}
 
 	render() {
-		const { avatar, shape, stroke, ...wrapperProps } = this.props as Required<ProgressCircleProps>
+		const { avatar, shape, stroke } = this.props as Required<ProgressCircleProps>
 		return (
-			<Wrapper size={this.SIZE} {...wrapperProps}>
+			<Wrapper size={this.SIZE}>
 				<Circle shine={this.state.shine}>
 					<ProgressMeter viewBox={`${-this.SIZE / 2} ${-this.SIZE / 2} ${this.SIZE} ${this.SIZE}`}>
 						<circle r={this.RADIUS} fill="none" strokeWidth={this.CIRCLE_WIDTH} stroke={stroke?.background} />
