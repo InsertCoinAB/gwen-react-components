@@ -1,0 +1,74 @@
+---
+name: Progress Circular
+route: /character/progress-circular
+menu: Character
+edit: false
+---
+
+import { Playground, Props } from "docz"
+import { ProgressCircle } from "../../src/google-classroom"
+
+# Progress Circle Component
+
+Use this component to ....
+
+<Playground>
+	<div style={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
+		<div style={{width: "100px"}}>
+    		<ProgressCircle step={1} shape="triangle" progress={0.2} avatar="/public/atom.svg" stroke={{ primary: "#4182b7" }} style={{ margin: "0 20px" }} />
+    	</div>
+		<div style={{width: "120px"}}>
+			<ProgressCircle
+				step={7}
+				shape="shield"
+				progress={0.4}
+				avatar="/public/avatar.svg"
+				stroke={{ primary: "#a57af7", background: "#6946aa" }}
+				style={{ margin: "0 20px" }}
+			/>
+		</div>
+		<div style={{width: "150px"}}>
+    		<ProgressCircle step={13} shape="circle" progress={0.55} avatar="/public/bunny.svg" style={{ margin: "0 20px" }} />
+    	</div>
+		<div style={{width: "120px"}}>
+			<ProgressCircle step={42} shape="star" progress={0.7} avatar="/public/book.svg" stroke={{ primary: "#a57af7" }} style={{ margin: "0 20px" }} />
+    	</div>
+		<div style={{width: "100px"}}>
+			<ProgressCircle step={242} shape="square" progress={0.9} avatar="/public/phone.svg" stroke={{ primary: "#fce763" }} style={{ margin: "0 20px" }} />
+		</div>
+	</div>
+    <br />
+
+</Playground>
+
+<br></br>
+
+<Props of={ProgressCircle} />
+
+<Playground>
+	{() => {
+		const [state, setState] = React.useState({ step: 1, progress: 0 })
+		return (
+			<React.Fragment>
+				<button
+					onClick={() =>
+						setState((s) => {
+							const p = Math.random()
+							return { progress: p, step: p < s.progress ? s.step + 1 : s.step }
+						})
+					}
+				>
+					Gain Experience
+				</button>
+				<ProgressCircle
+					step={state.step}
+					shape="shield"
+					progress={state.progress}
+					avatar="/public/bunny.svg"
+					stroke={{ primary: "#a57af7" }}
+					style={{ marginBottom: "50px" }}
+				/>
+			</React.Fragment>
+		)
+	}}
+</Playground>

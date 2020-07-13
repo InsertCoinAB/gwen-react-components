@@ -1,0 +1,46 @@
+---
+name: Tiered Progress Bar
+route: /character/tiered-progress-bar
+menu: Character
+edit: false
+---
+
+import { Playground, Props } from "docz"
+import { TieredProgressBar } from "../../src/google-classroom"
+import { Tiers1, Tiers2 } from "./data"
+
+# Tiered Progress Bar Component
+
+Use this component to ....
+
+<Playground>
+	<div style={{ display: "flex", flexDirection: "column", height: "200px", width: "400px", justifyContent: "space-around" }}>
+		<TieredProgressBar stepNumber={35} tiers={Tiers1} icon="circle" color="#13b06d" background="#87c5aa" />
+		<TieredProgressBar stepNumber={45} tiers={Tiers2} icon="star" color="#a57af7" background="#bbabd8" />
+	</div>
+</Playground>
+
+<Playground>
+	{() => {
+		const [state, setState] = React.useState({ step: 1 })
+		return (
+			<React.Fragment>
+				<button
+					onClick={() =>
+						setState((s) => {
+							const p = Math.floor(Math.random() * 5)
+							return { step: s.step + p }
+						})
+					}
+				>
+					Gain Experience
+				</button>
+				<TieredProgressBar stepNumber={state.step} tiers={Tiers1} icon="circle" color="#13b06d" background="#87c5aa" />
+			</React.Fragment>
+		)
+	}}
+</Playground>
+
+<br></br>
+
+<Props of={TieredProgressBar} />
