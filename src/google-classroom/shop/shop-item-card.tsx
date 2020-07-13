@@ -19,15 +19,15 @@ export const ShopItemCard = (props: Props) => {
 				<img src={getShopIcon(data.imageUrl)} alt="shop-item-icon" />
 			</Icon>
 			<Price>
-				<PriceLabel>{data.value}</PriceLabel>
-				<PriceIcon>{rewardIcons[parseShopCurrency(data.currency)]()}</PriceIcon>
+				<span>{data.value}</span>
+				{rewardIcons[parseShopCurrency(data.currency)]()}
 			</Price>
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.div`
-	width: 200px;
+	flex: 1;
 	padding: 15px;
 	background: white;
 	border-radius: 10px;
@@ -36,6 +36,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 	transition: box-shadow 0.2s ease-in-out;
+	user-select: none;
 	&:hover {
 		cursor: pointer;
 		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
@@ -49,8 +50,8 @@ const Title = styled.span`
 
 const Icon = styled.div`
 	margin: 30px 0;
-	width: 120px;
-	height: 120px;
+	width: 100px;
+	height: 100px;
 	> img {
 		height: 100%;
 		width: 100%;
@@ -62,20 +63,14 @@ const Price = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin-bottom: 15px;
-`
-
-const PriceLabel = styled.span`
-	font-weight: 700;
-	font-size: 24px;
-	margin-right: 5px;
-`
-
-const PriceIcon = styled.div`
-	height: 32px;
-	width: 32px;
+	margin-bottom: 5px;
+	> span {
+		font-weight: 600;
+		font-size: 20px;
+		margin-right: 8px;
+	}
 	> svg {
-		height: 100%;
-		width: 100%;
+		height: 30px;
+		width: 30px;
 	}
 `
