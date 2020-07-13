@@ -8,7 +8,6 @@ export type ProgressCircleProps = {
 	avatar: string
 	shape?: StepShape
 	stroke?: { primary: string; background?: string }
-	size?: number
 }
 
 type State = {
@@ -18,9 +17,7 @@ type State = {
 }
 
 export class ProgressCircle extends React.PureComponent<ProgressCircleProps, State> {
-	private SIZE = this.props.size || 100
-	private CIRCLE_WIDTH = this.SIZE / 20
-	private RADIUS = (this.SIZE - this.CIRCLE_WIDTH) / 2
+	private RADIUS = 47.5
 	private MISSING = 0.04
 	state: State = { step: this.props.step || 0, progress: this.props.progress || 0 }
 	/* eslint-disable-next-line react/static-property-placement */
@@ -52,14 +49,14 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps, Sta
 	render() {
 		const { avatar, shape, stroke } = this.props as Required<ProgressCircleProps>
 		return (
-			<Wrapper size={this.SIZE}>
+			<Wrapper>
 				<Circle shine={this.state.shine}>
-					<ProgressMeter viewBox={`${-this.SIZE / 2} ${-this.SIZE / 2} ${this.SIZE} ${this.SIZE}`}>
-						<circle r={this.RADIUS} fill="none" strokeWidth={this.CIRCLE_WIDTH} stroke={stroke?.background} />
+					<ProgressMeter viewBox="-50 -50 100 100">
+						<circle r={this.RADIUS} fill="none" strokeWidth={5} stroke={stroke?.background} />
 						<circle
 							transform={`rotate(${90 + this.MISSING * 180})`}
 							r={this.RADIUS}
-							strokeWidth={this.CIRCLE_WIDTH}
+							strokeWidth={5}
 							stroke={stroke?.primary}
 							fill="none"
 							strokeLinecap="round"
@@ -78,16 +75,10 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps, Sta
 	}
 }
 
-interface WrapperProps {
-	size: number
-}
-
 const Wrapper = styled.div`
 	position: relative;
 	display: flex;
 	justify-content: center;
-	width: ${(props: WrapperProps) => props.size}px;
-	height: ${(props: WrapperProps) => props.size}px;
 `
 const Circle = styled.div`
 	position: relative;
