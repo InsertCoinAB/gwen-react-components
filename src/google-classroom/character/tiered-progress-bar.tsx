@@ -46,7 +46,12 @@ const Wrapper = styled.div`
 const IconWrapper = styled.div`
 	position: absolute;
 	left: 0;
+	height: 35px;
+	width: 35px;
 	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
 
 const Tiers = styled.div`
