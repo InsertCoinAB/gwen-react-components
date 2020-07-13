@@ -34,7 +34,7 @@ export const AchievementCard = (props: Props) => {
 }
 
 const Wrapper = styled.div`
-	width: 150px;
+	flex: 1;
 	padding: 10px;
 	background: white;
 	border-radius: 10px;
@@ -43,6 +43,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 	transition: box-shadow 0.2s ease-in-out;
+	user-select: none;
 	&:hover {
 		cursor: pointer;
 		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
@@ -52,6 +53,7 @@ const Wrapper = styled.div`
 const Title = styled.span`
 	font-weight: 700;
 	font-size: 14px;
+	white-space: nowrap;
 `
 
 const Icon = styled.div`
