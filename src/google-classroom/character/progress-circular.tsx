@@ -67,7 +67,7 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps, Sta
 					</ProgressMeter>
 					<ProgressImage src={avatar} alt="avatar" />
 				</Circle>
-				<StepWrapper>
+				<StepWrapper shape={shape}>
 					<StepIcon step={this.state.step} shape={shape} />
 				</StepWrapper>
 			</Wrapper>
@@ -129,11 +129,15 @@ const ProgressImage = styled.img`
 	border-radius: 20%;
 	overflow: hidden;
 `
+
+interface StepIconProps {
+	shape: StepShape
+}
+
 const StepWrapper = styled.div`
 	position: absolute;
 	display: flex;
 	justify-content: center;
-	width: 100%;
-	bottom: -15%;
-	height: 30%;
+	bottom: -${(props: StepIconProps) => (props.shape === "shield" ? 20 : 15)}%;
+	height: ${(props: StepIconProps) => (props.shape === "shield" ? 40 : 30)}%;
 `
