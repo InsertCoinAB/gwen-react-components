@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { AchievementTierData } from "../../../types"
+import { AchievementTierData } from "../../types"
 
 interface Props {
 	tier: AchievementTierData

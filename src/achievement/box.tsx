@@ -1,111 +1,78 @@
 import React from "react"
-import styled, { DefaultTheme } from "styled-components"
-import { Button } from "../components/button"
-import { ProgressBar } from "../components/progress-bar"
-import { Check } from "../icons/check"
+import styled from "styled-components"
 import { AchievementData } from "../types"
+import { AchievementProgress } from "./components/achievement-progress"
 import { getAchievementIcon } from "./icon"
-import { AchievementTranslations } from "./translations"
 
 interface Props {
-	achievement?: AchievementData
-	open?: (achievement: AchievementData) => void
-	details?: string
-	scale?: number
+	data: AchievementData
+	openDetails: (data: AchievementData) => void
 }
 
-export class AchievementBox extends React.PureComponent<Props> {
-	open() {
-		if (this.props.open && this.props.achievement) {
-			this.props.open(this.props.achievement)
-		}
-	}
+export const AchievementBox = (props: Props) => {
+	const { data, openDetails } = props
+	const { tiers, title, icon } = data
 
-	render() {
-		const { achievement } = this.props
-		const tier = achievement && achievement.tiers.find((a, index) => !a.completed || index === achievement.tiers.length - 1)
-		return (
-			<AchievementWrapper data-cy={`achievement-wrapper-${tier && tier.completed ? "completed" : "incompleted"}`} active={!!(achievement && tier)}>
-				{achievement && tier && (
-					<>
-						<Title>{achievement.title}</Title>
-						<Icon src={getAchievementIcon(tier.icon)} />
-						{tier.completed && (
-							<AchievementCheck data-cy="achievement-checkmark">
-								<Checkmark />
-							</AchievementCheck>
-						)}
-						<ProgressWrapper>
-							<ProgressBar completed={tier.progress} amount={tier.amount} />
-						</ProgressWrapper>
-						<Button widthFactor={142} heightFactor={30} onClick={() => this.open()}>
-							{this.props.details || AchievementTranslations.details}
-						</Button>
-					</>
-				)}
-			</AchievementWrapper>
-		)
-	}
+	const activeTier = tiers.find((a, index) => !a.completed || index === tiers.length - 1)
+
+	return (
+		<Wrapper onClick={() => openDetails(data)}>
+			<Title>{title}</Title>
+			<Icon>
+				<img src={getAchievementIcon(icon)} alt="achievement-icon" />
+			</Icon>
+			{activeTier && (
+				<>
+					<ProgressWrapper>
+						<AchievementProgress tier={activeTier} />
+					</ProgressWrapper>
+					<ProgressLabel>{`${activeTier?.progress} / ${activeTier?.amount}`}</ProgressLabel>
+				</>
+			)}
+		</Wrapper>
+	)
 }
 
-type AchievementWrapperProps = { active?: boolean; theme: DefaultTheme }
-const AchievementWrapper = styled.div`
-	position: relative;
+const Wrapper = styled.div`
+	flex: 1;
+	padding: 10px;
+	background: white;
+	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	padding-bottom: ${(p: AchievementWrapperProps) => p.theme.proportions(8)}px;
-	flex: 1;
-	background: ${(p: AchievementWrapperProps) => p.theme.gwen.colors.background.default};
-	box-shadow: ${(p: AchievementWrapperProps) => (p.active ? p.theme.gwen.boxShadow.default(p.theme.scale) : "")};
-	overflow: hidden;
+	align-items: center;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+	transition: box-shadow 0.2s ease-in-out;
+	user-select: none;
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+	}
 `
 
-const Title = styled.div`
-	height: ${(props) => props.theme.proportions(36)}px;
-	padding: 0 ${(props) => props.theme.proportions(8)}px;
-	background: ${(props) => props.theme.gwen.colors.background.header};
-	font-size: ${(props) => props.theme.proportions(18)}px;
-	line-height: ${(props) => props.theme.proportions(36)}px;
-	font-weight: bold;
+const Title = styled.span`
+	font-weight: 700;
+	font-size: 14px;
 	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	margin-bottom: ${(props) => props.theme.proportions(10)}px;
-	border-bottom: ${(props) => props.theme.gwen.border.default(props.theme.scale)};
-	text-align: center;
 `
-const Icon = styled.img`
-	height: ${(props) => props.theme.proportions(65)}px;
-	width: ${(props) => props.theme.proportions(65)}px;
-	margin: 0 auto ${(props) => props.theme.proportions(10)}px;
-`
-const AchievementCheck = styled.div`
-	position: absolute;
-	top: ${(props) => props.theme.proportions(45)}px;
-	right: ${(props) => props.theme.proportions(10)}px;
-	width: ${(props) => props.theme.proportions(35)}px;
-	height: ${(props) => props.theme.proportions(35)}px;
-	background: ${(props) => props.theme.gwen.colors.background.header};
-	font-size: ${(props) => props.theme.proportions(25)}px;
-	padding: ${(props) => props.theme.proportions(4)}px;
-	border-radius: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: ${(props) => props.theme.gwen.boxShadow.default(props.theme.scale)};
-	img {
-		width: 100%;
-		height: auto;
+
+const Icon = styled.div`
+	height: 80px;
+	padding: 10px 0;
+	> img {
+		height: 100%;
+		object-fit: contain;
 	}
 `
 
 const ProgressWrapper = styled.div`
-	padding: 0 ${(p) => p.theme.proportions(10)}px ${(p) => p.theme.proportions(10)}px;
+	width: 80%;
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
 `
 
-const Checkmark = styled(Check)`
-	path {
-		fill: ${(p) => p.theme.gwen.colors.success};
-	}
+const ProgressLabel = styled.span`
+	font-size: 14px;
+	margin-top: 5px;
 `

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { CharacterProgressionIcons } from "../../icons/character-progression"
+import { CharacterProgressionIcons } from "../icons/character-progression"
 
 export type StepShape = "square" | "circle" | "triangle" | "star" | "shield"
 

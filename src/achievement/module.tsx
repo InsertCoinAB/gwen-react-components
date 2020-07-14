@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { ScrollArrows } from "../components/scroll-arrows"
 import { ModuleWrapperFull } from "../components/wrapper"
 import { AchievementData } from "../types"
-import { AchievementBox } from "./box"
+import { DeprecatedAchievementBox } from "./box-deprecated"
 import { AchievementTranslation } from "./translations"
 
 interface Props {
@@ -45,19 +45,19 @@ export class AchievementModule extends React.PureComponent<Props, State> {
 									return (
 										<CellMeasurer cache={cache} columnIndex={0} key={item.index} parent={item.parent} rowIndex={item.index}>
 											<Wrapper style={{ ...item.style, display: "flex", flexDirection: "row", flexWrap: "wrap", padding: `${4 * this.props.scale}px` }}>
-												<AchievementBox
+												<DeprecatedAchievementBox
 													achievement={this.props.achievements[index]}
 													details={this.props.translations.details}
 													open={(a) => this.open(a)}
 													scale={this.props.scale}
 												/>
-												<AchievementBox
+												<DeprecatedAchievementBox
 													achievement={this.props.achievements[index + 1]}
 													details={this.props.translations.details}
 													open={(a) => this.open(a)}
 													scale={this.props.scale}
 												/>
-												<AchievementBox
+												<DeprecatedAchievementBox
 													achievement={this.props.achievements[index + 2]}
 													details={this.props.translations.details}
 													open={(a) => this.open(a)}

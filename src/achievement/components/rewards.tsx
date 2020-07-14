@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { rewardIcons } from "../../../icons/rewards"
-import { RewardData } from "../../../types"
+import { rewardIcons } from "../../icons/rewards"
+import { RewardData } from "../../types"
 
 interface Props {
 	rewards: RewardData[]

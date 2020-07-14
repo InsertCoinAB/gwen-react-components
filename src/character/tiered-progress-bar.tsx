@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { CharacterProgressionTierData } from "../../types"
+import { CharacterProgressionTierData } from "../types"
 import { StepIcon, StepShape } from "./step-icon"
 
 interface Props {

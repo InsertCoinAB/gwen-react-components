@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { rewardIcons } from "../../icons/rewards"
-import { ModuleShopItem } from "../../types"
+import { rewardIcons } from "../icons/rewards"
+import { ModuleShopItem } from "../types"
 import { getShopIcon } from "./utils/icon"
 import { parseShopCurrency } from "./utils/parse-currency"
 
@@ -10,7 +10,7 @@ interface Props {
 	openDetails: (data: ModuleShopItem) => void
 }
 
-export const ShopItemCard = (props: Props) => {
+export const ShopItemBox = (props: Props) => {
 	const { data, openDetails } = props
 	return (
 		<Wrapper onClick={() => openDetails(data)}>

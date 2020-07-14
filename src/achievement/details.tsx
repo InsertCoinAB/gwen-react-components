@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { getAchievementIcon } from "../../achievement/icon"
-import { AchievementTranslation } from "../../achievement/translations"
-import { ChevronDown } from "../../icons/chevron-down"
-import { AchievementData } from "../../types"
-import { Rewards } from "../components"
+import { ChevronDown } from "../icons/chevron-down"
+import { AchievementData } from "../types"
 import { AchievementProgress } from "./components/achievement-progress"
+import { Rewards } from "./components/rewards"
+import { getAchievementIcon } from "./icon"
+import { AchievementTranslation } from "./translations"
 
 interface Props {
 	data: AchievementData

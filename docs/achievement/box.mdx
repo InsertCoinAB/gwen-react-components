@@ -6,8 +6,8 @@ edit: false
 ---
 
 import { Playground, Props } from "docz"
-import { AchievementBoxComponent } from "../../src"
-import { AchievementSuperGiver, AchievementSharingIsCaring } from "./data"
+import { AchievementBox } from "../../src"
+import { AchievementSuperGiver, AchievementSharer, AchievementFoodRun } from "./data"
 
 # Achievement Box Component
 
@@ -15,13 +15,16 @@ Use this component in Embedded views
 
 <Playground>
 	<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-		<div style={{ width: "30%" }}>
-			<AchievementBoxComponent achievement={AchievementSuperGiver} open={(achievement) => console.log(achievement)} />
+		<div style={{ width: "20%", display: "flex", justifyContent: "center" }}>
+			<AchievementBox data={AchievementFoodRun} openDetails={(data) => console.log(data)} />
 		</div>
-		<div style={{ width: "30%" }}>
-			<AchievementBoxComponent achievement={AchievementSharingIsCaring} open={(achievement) => console.log(achievement)} />
+		<div style={{ width: "20%", display: "flex", justifyContent: "center" }}>
+			<AchievementBox data={AchievementSharer} openDetails={(data) => console.log(data)} />
+		</div>
+		<div style={{ width: "20%", display: "flex", justifyContent: "center" }}>
+			<AchievementBox data={AchievementSuperGiver} openDetails={(data) => console.log(data)} />
 		</div>
 	</div>
 </Playground>
 
-<Props of={AchievementBoxComponent} />
+<Props of={AchievementBox} />

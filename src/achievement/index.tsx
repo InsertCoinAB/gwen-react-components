@@ -1,7 +1,7 @@
 import React from "react"
 import { WrapperComponent } from "../theme"
 import { AchievementData, RewardIcons } from "../types"
-import { AchievementBox } from "./box"
+import { DeprecatedAchievementBox } from "./box-deprecated"
 import { AchievementModule } from "./module"
 import { AchievementTiers } from "./tiers"
 import { AchievementTranslation, AchievementTranslations } from "./translations"
@@ -12,6 +12,9 @@ interface ModuleProps {
 	translations?: Partial<AchievementTranslation>
 	scale?: number
 }
+
+export * from "./box"
+export * from "./details"
 
 export function AchievementModuleComponent(props: ModuleProps) {
 	const { translations, scale, achievements, ...restprops } = props
@@ -31,11 +34,11 @@ interface BoxProps {
 	scale?: number
 }
 
-export function AchievementBoxComponent(props: BoxProps) {
+export function DeprecatedAchievementBoxComponent(props: BoxProps) {
 	const { scale, ...restprops } = props
 	return (
 		<WrapperComponent scale={scale}>
-			<AchievementBox {...restprops} />
+			<DeprecatedAchievementBox {...restprops} />
 		</WrapperComponent>
 	)
 }
