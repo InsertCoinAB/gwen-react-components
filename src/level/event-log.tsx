@@ -37,7 +37,6 @@ export class EventLog extends React.Component<Props, State> {
 		if (log.type === "GWEN_CHALLENGE_COMPLETE") {
 			return "challenge"
 		}
-		// eslint-disable-next-line unicorn/no-useless-undefined
 		return undefined
 	}
 

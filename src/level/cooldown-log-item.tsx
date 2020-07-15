@@ -32,6 +32,7 @@ export class CooldownLogItem extends PureComponent<Props, State> {
 		}, SECOND_MS)
 	}
 
+	// eslint-disable-next-line camelcase
 	UNSAFE_componentWillReceiveProps(props: Props) {
 		clearInterval(this.interval)
 		this.interval = setInterval(() => {
