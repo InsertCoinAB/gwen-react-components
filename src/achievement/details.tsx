@@ -9,7 +9,7 @@ import { AchievementTranslation } from "./translations"
 
 interface Props {
 	data: AchievementData
-	translations: Pick<AchievementTranslation, "rewards">
+	translations: Partial<AchievementTranslation>
 }
 
 interface State {
@@ -17,13 +17,17 @@ interface State {
 }
 
 export class AchievementDetails extends React.PureComponent<Props, State> {
-	state: State = {
-		activeTierIndex: this.props.data.tiers.findIndex((a) => !a.completed) ?? this.props.data.tiers.length - 1,
-	}
+	state: State = (() => {
+		const { tiers } = this.props.data
+		const index = tiers.findIndex((t) => !t.completed)
+		return { activeTierIndex: index === -1 ? tiers.length - 1 : index }
+	})()
 
 	render() {
 		const { data, translations } = this.props
+		console.log("data", data)
 		const { activeTierIndex } = this.state
+		console.log("activeTierIndex", activeTierIndex)
 		const activeTier = data.tiers[activeTierIndex]
 
 		return (

@@ -40,20 +40,22 @@ const Wrapper = styled.div`
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 	transition: box-shadow 0.2s ease-in-out;
 	user-select: none;
+	overflow: hidden;
 	&:hover {
 		cursor: pointer;
 		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 	}
 `
 
-const Title = styled.span`
+const Title = styled.div`
 	font-weight: 700;
 	font-size: 14px;
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `
 
 const Icon = styled.div`
@@ -66,7 +68,8 @@ const Icon = styled.div`
 `
 
 const ProgressWrapper = styled.div`
-	width: 80%;
+	width: 100%;
+	padding: 0 10px;
 	margin-top: 15px;
 	display: flex;
 	flex-direction: row;

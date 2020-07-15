@@ -6,7 +6,7 @@ edit: false
 ---
 
 import { Playground, Props } from "docz"
-import { ProgressCircle } from "../../src"
+import { ProgressCircleComponent } from "../../src"
 
 # Progress Circle Component
 
@@ -15,10 +15,10 @@ Use this component to display character progressions through a circular progress
 <Playground>
 	<div style={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
 		<div style={{width: "100px"}}>
-    		<ProgressCircle step={1} shape="triangle" progress={0.2} avatar="/public/atom.svg" stroke={{ primary: "#4182b7" }} style={{ margin: "0 20px" }} />
+    		<ProgressCircleComponent step={1} shape="triangle" progress={0.2} avatar="/public/atom.svg" stroke={{ primary: "#4182b7" }} style={{ margin: "0 20px" }} />
     	</div>
 		<div style={{width: "120px"}}>
-			<ProgressCircle
+			<ProgressCircleComponent
 				step={7}
 				shape="shield"
 				progress={0.4}
@@ -28,13 +28,13 @@ Use this component to display character progressions through a circular progress
 			/>
 		</div>
 		<div style={{width: "150px"}}>
-    		<ProgressCircle step={13} shape="circle" progress={0.55} avatar="/public/bunny.svg" style={{ margin: "0 20px" }} />
+    		<ProgressCircleComponent step={13} shape="circle" progress={0.55} avatar="/public/bunny.svg" style={{ margin: "0 20px" }} />
     	</div>
 		<div style={{width: "120px"}}>
-			<ProgressCircle step={42} shape="star" progress={0.7} avatar="/public/book.svg" stroke={{ primary: "#a57af7" }} style={{ margin: "0 20px" }} />
+			<ProgressCircleComponent step={42} shape="star" progress={0.7} avatar="/public/book.svg" stroke={{ primary: "#a57af7" }} style={{ margin: "0 20px" }} />
     	</div>
 		<div style={{width: "100px"}}>
-			<ProgressCircle step={242} shape="square" progress={0.9} avatar="/public/phone.svg" stroke={{ primary: "#fce763" }} style={{ margin: "0 20px" }} />
+			<ProgressCircleComponent step={242} shape="square" progress={0.9} avatar="/public/phone.svg" stroke={{ primary: "#fce763" }} style={{ margin: "0 20px" }} />
 		</div>
 	</div>
     <br />
@@ -43,7 +43,7 @@ Use this component to display character progressions through a circular progress
 
 <br></br>
 
-<Props of={ProgressCircle} />
+<Props of={ProgressCircleComponent} />
 
 <Playground>
 	{() => {
@@ -60,7 +60,7 @@ Use this component to display character progressions through a circular progress
 				>
 					Gain Experience
 				</button>
-				<ProgressCircle
+				<ProgressCircleComponent
 					step={state.step}
 					shape="shield"
 					progress={state.progress}

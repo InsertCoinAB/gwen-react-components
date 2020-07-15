@@ -6,7 +6,7 @@ edit: false
 ---
 
 import { Playground, Props } from "docz"
-import { TieredProgressBar } from "../../src"
+import { TieredProgressBarComponent } from "../../src"
 import { Tiers1, Tiers2 } from "./data"
 
 # Tiered Progress Bar Component
@@ -15,8 +15,8 @@ Use this component to display detailed character progression
 
 <Playground>
 	<div style={{ display: "flex", flexDirection: "column", height: "200px", width: "400px", justifyContent: "space-around" }}>
-		<TieredProgressBar stepNumber={35} tiers={Tiers1} icon="circle" color="#13b06d" background="#87c5aa" />
-		<TieredProgressBar stepNumber={45} tiers={Tiers2} icon="star" color="#a57af7" background="#bbabd8" />
+		<TieredProgressBarComponent stepNumber={35} tiers={Tiers1} icon="circle" color="#13b06d" background="#87c5aa" />
+		<TieredProgressBarComponent stepNumber={45} tiers={Tiers2} icon="star" color="#a57af7" background="#bbabd8" />
 	</div>
 </Playground>
 
@@ -35,7 +35,7 @@ Use this component to display detailed character progression
 				>
 					Gain Experience
 				</button>
-				<TieredProgressBar stepNumber={state.step} tiers={Tiers1} icon="circle" color="#13b06d" background="#87c5aa" />
+				<TieredProgressBarComponent stepNumber={state.step} tiers={Tiers1} icon="circle" color="#13b06d" background="#87c5aa" />
 			</React.Fragment>
 		)
 	}}
@@ -43,4 +43,4 @@ Use this component to display detailed character progression
 
 <br></br>
 
-<Props of={TieredProgressBar} />
+<Props of={TieredProgressBarComponent} />

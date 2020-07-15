@@ -6,7 +6,7 @@ edit: false
 ---
 
 import { Playground, Props } from "docz"
-import { ShopItemDetails } from "../../src"
+import { ShopItemDetailsComponent } from "../../src"
 import { ShopItemBoost, ShopItemShirt, ModuleShop } from "./data"
 
 # Shop Item Details Component
@@ -16,12 +16,12 @@ Use this component to display a detailed view of a shop item
 <Playground>
 	<div style={{ display: "flex", alignItems: "center", justifyContent: "space-around", flexDirection: "row", height: "700px" }}>
 		<div style={{ width: "400px", height: "500px", background: "#fff", borderRadius: "10px", boxShadow: "0px 0px 6px 6px rgba(0, 0, 0, 0.25)" }}>
-			<ShopItemDetails data={ShopItemBoost} shop={ModuleShop} purchaseItem={(id) => console.log(id)} />
+			<ShopItemDetailsComponent data={ShopItemBoost} shop={ModuleShop} purchaseItem={(id) => console.log(id)} />
 		</div>
 		<div style={{ width: "400px", height: "500px", background: "#fff", borderRadius: "10px", boxShadow: "0px 0px 6px 6px rgba(0, 0, 0, 0.25)" }}>
-			<ShopItemDetails data={ShopItemShirt} shop={ModuleShop} purchaseItem={(id) => console.log(id)} />
+			<ShopItemDetailsComponent data={ShopItemShirt} shop={ModuleShop} purchaseItem={(id) => console.log(id)} />
 		</div>
 	</div>
 </Playground>
 
-<Props of={ShopItemDetails} />
+<Props of={ShopItemDetailsComponent} />

@@ -15,7 +15,7 @@ export const Rewards = (props: Props) => {
 			<RewardTitle>{rewardTranslation}:</RewardTitle>
 			<RewardWrapper>
 				{rewards.map((r) => (
-					<Reward>
+					<Reward key={`${r.currency}-reward`}>
 						{rewardIcons[r.currency]()}
 						<span>{r.amount}</span>
 					</Reward>

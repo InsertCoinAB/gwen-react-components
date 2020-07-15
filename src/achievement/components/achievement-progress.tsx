@@ -12,14 +12,14 @@ export const AchievementProgress = (props: Props) => {
 
 	if (tier.amount > 5) {
 		progressBars.push(
-			<ProgressBar>
+			<ProgressBar key="achievement-progress-bar-0">
 				<ProgressFill fill={Math.round(100 * (tier.progress / tier.amount))} />
 			</ProgressBar>,
 		)
 	} else {
 		for (let i = 1; i <= tier.amount; i++) {
 			progressBars.push(
-				<ProgressBar>
+				<ProgressBar key={`achievement-progress-bar-${i}`}>
 					<ProgressFill fill={i <= tier.progress ? 100 : 0} />
 				</ProgressBar>,
 			)
