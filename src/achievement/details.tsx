@@ -112,7 +112,7 @@ const Icon = styled.div`
 	align-items: center;
 	justify-content: center;
 	> img {
-		height: 100px;
+		height: 150px;
 		object-fit: contain;
 	}
 `
