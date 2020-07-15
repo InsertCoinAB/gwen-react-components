@@ -26,8 +26,6 @@ export const Rewards = (props: Props) => {
 }
 
 const Wrapper = styled.div`
-	height: 100%;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -39,8 +37,6 @@ const RewardTitle = styled.span`
 `
 
 const RewardWrapper = styled.div`
-	width: 100%;
-	height: 80%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -48,13 +44,13 @@ const RewardWrapper = styled.div`
 `
 
 const Reward = styled.div`
-	height: 100%;
 	display: flex;
 	flex-direction: column;
+	margin: 0 15px;
 	align-items: center;
 	> svg {
-		height: 100%;
-		width: 100%;
+		height: 50px;
+		width: 50px;
 		object-fit: contain;
 	}
 	> span {

@@ -25,9 +25,7 @@ export class AchievementDetails extends React.PureComponent<Props, State> {
 
 	render() {
 		const { data, translations } = this.props
-		console.log("data", data)
 		const { activeTierIndex } = this.state
-		console.log("activeTierIndex", activeTierIndex)
 		const activeTier = data.tiers[activeTierIndex]
 
 		return (
@@ -68,12 +66,11 @@ export class AchievementDetails extends React.PureComponent<Props, State> {
 }
 
 const Wrapper = styled.div`
-	width: 100%;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 10px;
+	padding: 15px;
+	user-select: none;
 `
 
 const Title = styled.span`
@@ -82,9 +79,9 @@ const Title = styled.span`
 `
 
 const TierSwitcher = styled.div`
-	height: 25%;
 	display: flex;
 	flex-direction: row;
+	margin: 10px 0;
 	padding: 10px;
 	align-items: center;
 	justify-content: space-between;
@@ -96,7 +93,6 @@ interface ArrowProps {
 }
 
 const TierSwitcherArrow = styled.div`
-	height: 40%;
 	width: 20%;
 	display: flex;
 	align-items: center;
@@ -111,13 +107,12 @@ const TierSwitcherArrow = styled.div`
 `
 
 const Icon = styled.div`
-	height: 100%;
 	flex: 2;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	> img {
-		height: 80%;
+		height: 100px;
 		object-fit: contain;
 	}
 `
@@ -127,21 +122,19 @@ const ProgressLabel = styled.span`
 `
 
 const ProgressWrapper = styled.div`
+	margin: 10px 0;
 	width: 60%;
 	display: flex;
 	flex-direction: row;
 `
 
 const Description = styled.div`
-	margin: 15px 0;
 	font-size: 16px;
 	width: 80%;
-	height: 20%;
+	flex: 1;
 	text-align: center;
 `
 
 const RewardWrapper = styled.div`
-	width: 60%;
-	height: 20%;
 	margin-top: 10px;
 `

@@ -35,7 +35,7 @@ export const AchievementBox = (props: Props) => {
 
 const Wrapper = styled.div`
 	flex: 1;
-	padding: 10px;
+	padding: 15px 30px;
 	background: white;
 	border-radius: 10px;
 	display: flex;
@@ -53,6 +53,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
 	font-weight: 700;
 	font-size: 14px;
+	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -61,6 +62,9 @@ const Title = styled.div`
 const Icon = styled.div`
 	height: 80px;
 	padding: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	> img {
 		height: 100%;
 		object-fit: contain;
@@ -69,13 +73,12 @@ const Icon = styled.div`
 
 const ProgressWrapper = styled.div`
 	width: 100%;
-	padding: 0 10px;
-	margin-top: 15px;
+	margin: 10px 0;
 	display: flex;
 	flex-direction: row;
 `
 
 const ProgressLabel = styled.span`
 	font-size: 14px;
-	margin-top: 5px;
+	text-align: center;
 `
