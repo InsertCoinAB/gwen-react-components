@@ -24,8 +24,7 @@
 		"build:ts": "NODE_ENV=production babel src --extensions '.ts,.tsx' --out-dir dist --copy-files --ignore spec.ts",
 		"build:types": "tsc --emitDeclarationOnly --skipLibCheck",
 		"test:types": "tsc --noEmit",
-		"test:lint": "eslint 'src/**/*.{ts,tsx}'",
-		"test:prettier": "prettier --check 'src/**/*'"
+		"test:lint": "eslint 'src/**/*.{ts,tsx}'"
 	},
 	"dependencies": {
 		"react": "^16.13.1",
