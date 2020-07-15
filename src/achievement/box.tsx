@@ -35,7 +35,7 @@ export const AchievementBox = (props: Props) => {
 
 const Wrapper = styled.div`
 	flex: 1;
-	padding: 15px 30px;
+	padding: 15px;
 	background: white;
 	border-radius: 10px;
 	display: flex;

@@ -56,7 +56,7 @@ export const AchievementSharingIsCaring = {
 }
 
 export const AchievementFoodRun = {
-	title: "Food Run",
+	title: "Food Runner Supreme",
 	tiers: [
 		{
 			amount: 3,
