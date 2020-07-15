@@ -24,6 +24,7 @@ export class LevelCircle extends React.PureComponent<Props, State> {
 	}
 	state: State = { circleTransition: undefined }
 
+	// eslint-disable-next-line camelcase
 	UNSAFE_componentWillReceiveProps(nextProps: Readonly<Props>) {
 		if (nextProps.data && this.props.data && nextProps.data.levelUp && !this.props.data.levelUp) {
 			this.setState({ circleTransition: "full" })

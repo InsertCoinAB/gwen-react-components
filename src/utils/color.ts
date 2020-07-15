@@ -28,7 +28,8 @@ export class Color {
 
 	static rgb(color: string): { r: number; g: number; b: number } {
 		const rgb = { r: 0, g: 0, b: 0 }
-		if (color.slice(0, 3) === "rgb") {
+		if (color.startsWith("rgb")) {
+			// eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
 			const match = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i)
 			if (match && match.length === 4) {
 				rgb.r = Number.parseInt(match[1], 10)
