@@ -12,6 +12,7 @@ export interface AchievementData {
 	readonly completed?: Date
 	readonly rewards: RewardData[]
 	readonly cta?: string
+	readonly metadata: string
 }
 
 export interface AchievementTierData {
