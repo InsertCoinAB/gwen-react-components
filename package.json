@@ -1,6 +1,6 @@
 {
 	"name": "@insertcoinab/gwen-react-components",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"repository": "https://github.com/InsertCoinAB/gwen-react-components",
 	"license": "MIT",
 	"private": false,
@@ -38,8 +38,8 @@
 		"@babel/plugin-proposal-class-properties": "^7.10.4",
 		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
 		"@babel/plugin-proposal-optional-chaining": "^7.10.4",
-		"@types/jest": "^26.0.4",
-		"@types/node": "^14.0.23",
+		"@types/jest": "^26.0.5",
+		"@types/node": "^14.0.24",
 		"@types/react": "^16.9.43",
 		"@types/react-dom": "^16.9.8",
 		"@types/react-virtualized": "^9.21.10",
@@ -61,6 +61,6 @@
 		"react-docgen-typescript-loader": "^3.7.2",
 		"react-scripts": "3.4.1",
 		"trim-right": "^1.0.1",
-		"typescript": "3.9.6"
+		"typescript": "3.9.7"
 	}
 }
