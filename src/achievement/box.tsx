@@ -26,7 +26,7 @@ export const AchievementBox = (props: Props) => {
 					<ProgressWrapper>
 						<AchievementProgress tier={activeTier} />
 					</ProgressWrapper>
-					<ProgressLabel>{`${activeTier?.progress} / ${activeTier?.amount}`}</ProgressLabel>
+					<ProgressLabel>{`${activeTier.progress > activeTier.amount ? activeTier.amount : activeTier.progress} / ${activeTier.amount}`}</ProgressLabel>
 				</>
 			)}
 		</Wrapper>

@@ -9,7 +9,7 @@ import { parseShopCurrency } from "./utils/parse-currency"
 
 interface Props {
 	data: ModuleShopItem
-	shop: ShopData
+	shop: Partial<ShopData>
 	purchaseItem: (id: string) => void
 }
 
@@ -34,32 +34,34 @@ export const ShopItemDetails = (props: Props) => {
 
 const Wrapper = styled.div`
 	width: 100%;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	user-select: none;
+	padding: 30px;
 `
 
 const Title = styled.span`
-	margin-top: 30px;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 600;
 `
 
 const Icon = styled.div`
-	height: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin: 30px 0;
 	> img {
-		height: 100%;
+		height: 160px;
 		object-fit: contain;
 	}
 `
 
 const Description = styled.div`
 	margin: 15px 0;
-	font-size: 20px;
+	font-size: 18px;
 	width: 80%;
-	height: 20%;
+	flex: 1;
 	text-align: center;
 `
 
@@ -71,6 +73,7 @@ const Button = styled.div`
 	width: 40%;
 	padding: 6px 0;
 	border-radius: 10px;
+	margin-bottom: 30px;
 	background: #ad75ff;
 	display: flex;
 	flex-direction: row;
@@ -90,7 +93,7 @@ const Button = styled.div`
 		font-weight: 700;
 		color: white;
 		font-size: 24px;
-		margin-right: 5px;
+		margin-right: 10px;
 	}
 	> svg {
 		width: 30px;

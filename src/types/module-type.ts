@@ -1,3 +1,3 @@
-export const ModuleTypes = ["mission", "level", "skill", "shop", "leaderboard", "challenge", "achievement", "selfreporting"] as const
+export const ModuleTypes = ["mission", "level", "character", "shop", "leaderboard", "achievement", "selfreporting", "self-evaluation", "team"] as const
 
 export type ModuleType = typeof ModuleTypes[number]

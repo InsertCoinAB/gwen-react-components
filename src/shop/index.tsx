@@ -14,7 +14,7 @@ export function ShopItemBoxComponent(props: BoxProps) {
 
 interface DetailsProps {
 	data: ModuleShopItem
-	shop: ShopData
+	shop: Partial<ShopData>
 	purchaseItem: (id: string) => void
 }
 

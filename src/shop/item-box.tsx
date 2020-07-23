@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 	flex: 1;
 	padding: 15px;
 	background: white;
-	border-radius: 10px;
+	border-radius: 15px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -44,8 +44,8 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.span`
-	font-weight: 700;
-	font-size: 18px;
+	font-weight: 800;
+	font-size: 16px;
 `
 
 const Icon = styled.div`
@@ -70,7 +70,7 @@ const Price = styled.div`
 		margin-right: 8px;
 	}
 	> svg {
-		height: 30px;
-		width: 30px;
+		height: 28px;
+		width: 28px;
 	}
 `

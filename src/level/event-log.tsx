@@ -34,9 +34,6 @@ export class EventLog extends React.Component<Props, State> {
 		if (log.type === "GWEN_ACHIEVEMENT_COMPLETE") {
 			return "achievement"
 		}
-		if (log.type === "GWEN_CHALLENGE_COMPLETE") {
-			return "challenge"
-		}
 		return undefined
 	}
 
