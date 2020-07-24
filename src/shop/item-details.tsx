@@ -24,7 +24,7 @@ export const ShopItemDetails = (props: Props) => {
 				<img src={getShopIcon(data.imageUrl)} alt="details-shop-icon" />
 			</Icon>
 			<Description>{data.description}</Description>
-			<Button enabled={canAfford} onClick={() => (canAfford ? purchaseItem(data.id) : {})}>
+			<Button data-cy="purchase-button" enabled={canAfford} onClick={() => (canAfford ? purchaseItem(data.id) : {})}>
 				<span>{data.value}</span>
 				{rewardIcons[parseShopCurrency(data.currency)]()}
 			</Button>

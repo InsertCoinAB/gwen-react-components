@@ -14,7 +14,9 @@ export const StepIcon = (props: Props) => {
 	return (
 		<Wrapper>
 			{CharacterProgressionIcons[shape]()}
-			<IconText shape={shape}>{step}</IconText>
+			<IconText data-cy="step-number" shape={shape}>
+				{step}
+			</IconText>
 		</Wrapper>
 	)
 }
