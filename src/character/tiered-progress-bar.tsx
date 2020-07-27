@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { CharacterProgressionTierData } from "../types"
+import { RequiredProps } from "../utils/type-extensions/required"
 import { StepIcon, StepShape } from "./step-icon"
 
 interface Props {
@@ -13,7 +14,10 @@ interface Props {
 
 export const TieredProgressBar = (props: Props) => {
 	const { stepNumber, icon, color, background } = props
-	const tiers = props.tiers.filter((t) => typeof t.startStep === "number" && typeof t.endStep === "number")
+	const tiers = props.tiers.filter((t) => typeof t.startStep === "number" && typeof t.endStep === "number") as Array<
+		RequiredProps<CharacterProgressionTierData, "startStep" | "endStep">
+	>
+
 	return (
 		<Wrapper>
 			<IconWrapper>
@@ -24,8 +28,8 @@ export const TieredProgressBar = (props: Props) => {
 					<Tier
 						progress={(() => {
 							if (stepNumber < t.startStep) return 0
-							if (stepNumber > (t.endStep as number)) return 1
-							return (stepNumber - t.startStep) / ((t.endStep as number) - t.startStep)
+							if (stepNumber > t.endStep) return 1
+							return (stepNumber - t.startStep) / (t.endStep - t.startStep)
 						})()}
 						color={color}
 						background={background}

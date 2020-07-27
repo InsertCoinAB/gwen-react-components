@@ -3,7 +3,7 @@ import { RewardData } from "./reward"
 export interface CharacterProgressionTierData {
 	title: string
 	icon?: string
-	startStep: number
+	startStep?: number
 	endStep?: number
 	rewards: RewardData[]
 }

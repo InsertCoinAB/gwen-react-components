@@ -8,6 +8,7 @@ export type ProgressCircleProps = {
 	avatar: string
 	shape?: StepShape
 	stroke?: { primary: string; background?: string }
+	className?: string
 }
 
 type State = {
@@ -47,9 +48,9 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps, Sta
 	}
 
 	render() {
-		const { avatar, shape, stroke } = this.props as Required<ProgressCircleProps>
+		const { avatar, shape, stroke, className } = this.props as Required<ProgressCircleProps>
 		return (
-			<Wrapper>
+			<Wrapper className={className}>
 				<Circle shine={this.state.shine}>
 					<ProgressMeter viewBox="-50 -50 100 100">
 						<circle r={this.RADIUS} fill="none" strokeWidth={5} stroke={stroke?.background} />
