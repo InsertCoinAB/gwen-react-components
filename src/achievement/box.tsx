@@ -16,7 +16,7 @@ export const AchievementBox = (props: Props) => {
 	const activeTier = tiers.find((a, index) => !a.completed || index === tiers.length - 1)
 
 	return (
-		<Wrapper onClick={() => openDetails(data)}>
+		<Wrapper data-cy={`achievement-wrapper-${activeTier && activeTier.completed ? "completed" : "incompleted"}`} onClick={() => openDetails(data)}>
 			<Title>{title}</Title>
 			<Icon>
 				<img src={getAchievementIcon(icon)} alt="achievement-icon" />
