@@ -12,32 +12,75 @@ interface Props {
 	background: string
 }
 
-export const TieredProgressBar = (props: Props) => {
-	const { stepNumber, icon, color, background } = props
-	const tiers = props.tiers.filter((t) => typeof t.startStep === "number" && typeof t.endStep === "number") as Array<
-		RequiredProps<CharacterProgressionTierData, "startStep" | "endStep">
-	>
+interface State {
+	icon: StepShape
+	color: string
+	background: string
+	animation: boolean
+}
 
-	return (
-		<Wrapper>
-			<IconWrapper>
-				<StepIcon step={stepNumber} shape={icon} />
-			</IconWrapper>
-			<Tiers>
-				{tiers.map((t) => (
-					<Tier
-						progress={(() => {
-							if (stepNumber < t.startStep) return 0
-							if (stepNumber > t.endStep) return 1
-							return (stepNumber - t.startStep) / (t.endStep - t.startStep)
-						})()}
-						color={color}
-						background={background}
-					/>
-				))}
-			</Tiers>
-		</Wrapper>
-	)
+export class TieredProgressBar extends React.PureComponent<Props, State> {
+	state: State = {
+		icon: this.props.icon,
+		color: this.props.color,
+		background: this.props.background,
+		animation: false,
+	}
+
+	componentDidUpdate(prevProps: Props) {
+		if (this.props.icon !== prevProps.icon) {
+			this.themeUpdate()
+		}
+	}
+
+	themeUpdate() {
+		setTimeout(
+			() =>
+				this.setState((prevState) => ({
+					animation: true,
+					color: this.props.color || prevState.color,
+					background: this.props.background || prevState.background,
+				})),
+			500,
+		)
+		setTimeout(
+			() =>
+				this.setState((prevState) => ({
+					animation: false,
+					icon: this.props.icon || prevState.icon,
+				})),
+			1000,
+		)
+	}
+
+	render() {
+		const { stepNumber } = this.props
+		const { icon, color, background, animation } = this.state
+		const tiers = this.props.tiers.filter((t) => typeof t.startStep === "number" && typeof t.endStep === "number") as Array<
+			RequiredProps<CharacterProgressionTierData, "startStep" | "endStep">
+		>
+
+		return (
+			<Wrapper>
+				<IconWrapper animation={animation}>
+					<StepIcon step={stepNumber} shape={icon} />
+				</IconWrapper>
+				<Tiers>
+					{tiers.map((t) => (
+						<Tier
+							progress={(() => {
+								if (stepNumber < t.startStep) return 0
+								if (stepNumber > t.endStep) return 1
+								return (stepNumber - t.startStep) / (t.endStep - t.startStep)
+							})()}
+							color={color}
+							background={background}
+						/>
+					))}
+				</Tiers>
+			</Wrapper>
+		)
+	}
 }
 const Wrapper = styled.div`
 	padding: 10px;
@@ -46,6 +89,10 @@ const Wrapper = styled.div`
 	position: relative;
 	align-items: center;
 `
+
+interface IconProps {
+	animation: boolean
+}
 
 const IconWrapper = styled.div`
 	position: absolute;
@@ -56,6 +103,8 @@ const IconWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	opacity: ${(props: IconProps) => (props.animation ? 0 : 1)};
+	transition: opacity 0.5s ease-in-out;
 `
 
 const Tiers = styled.div`
@@ -92,6 +141,7 @@ const TierWrapper = styled.div`
 	height: 10px;
 	border-radius: 4px;
 	flex: 1;
+	transition: background 1s ease-in-out;
 	&:not(:last-child) {
 		margin-right: 5px;
 	}
@@ -109,5 +159,5 @@ const TierFiller = styled.div`
 	height: 100%;
 	background: ${(props: FillProps) => props.color};
 	width: ${(props: FillProps) => props.width}%;
-	transition: width 0.5s ease-in-out;
+	transition: width 0.5s ease-in-out, background 1s ease-in-out;
 `

@@ -47,28 +47,37 @@ Use this component to display character progressions through a circular progress
 
 <Playground>
 	{() => {
-		const [state, setState] = React.useState({ step: 1, progress: 0 })
+		const [state, setState] = React.useState({ step: 1, progress: 0, theme: { icon: "circle", primary: "#5dca7a", background: "#d5faee" } })
+		const themes = [
+			{ icon: "circle", primary: "#5dca7a", background: "#d5faee" },
+			{ icon: "triangle", primary: "#2583bc", background: "#d6effe" },
+			{ icon: "square", primary: "#ebd10a", background: "#fffad9" },
+			{ icon: "star", primary: "#ae72fb", background: "#f4edfe" }
+		]
 		return (
 			<React.Fragment>
 				<button
 					onClick={() =>
 						setState((s) => {
 							const p = Math.random()
-							return { progress: p, step: p < s.progress ? s.step + 1 : s.step }
+							const stepUp = p < s.progress
+							return { progress: p, step: stepUp ? s.step + 1 : s.step, theme: stepUp ? themes[Math.floor(p*4)] : s.theme }
 						})
 					}
 				>
 					Gain Experience
 				</button>
-				<ProgressCircleComponent
-					step={state.step}
-					shape="shield"
-					progress={state.progress}
-					avatar="/public/bunny.svg"
-					stroke={{ primary: "#a57af7" }}
-					style={{ marginBottom: "50px" }}
-				/>
-			</React.Fragment>
-		)
-	}}
+				<div style={{width: "200px", marginBottom: "50px"}}>
+					<ProgressCircleComponent
+						step={state.step}
+						shape={state.theme.icon}
+						progress={state.progress}
+						avatar="/public/bunny.svg"
+						stroke={{ primary: state.theme.primary, background: state.theme.background }}
+					/>
+    			</div>
+    		</React.Fragment>
+    	)
+    }}
+
 </Playground>

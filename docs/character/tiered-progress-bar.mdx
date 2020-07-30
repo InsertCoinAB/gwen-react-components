@@ -22,20 +22,32 @@ Use this component to display detailed character progression
 
 <Playground>
 	{() => {
-		const [state, setState] = React.useState({ step: 1 })
+		const [state, setState] = React.useState({ step: 1, theme: { icon: "circle", primary: "#5dca7a", background: "#d5faee" } })
+		const themes = [
+			{ icon: "circle", primary: "#5dca7a", background: "#d5faee" },
+			{ icon: "triangle", primary: "#2583bc", background: "#d6effe" },
+			{ icon: "square", primary: "#ebd10a", background: "#fffad9" },
+			{ icon: "star", primary: "#ae72fb", background: "#f4edfe" },
+		]
 		return (
 			<React.Fragment>
 				<button
 					onClick={() =>
 						setState((s) => {
-							const p = Math.floor(Math.random() * 5)
-							return { step: s.step + p }
+							const p = Math.random()
+							return { step: s.step + Math.floor(p * 5), theme: themes[Math.floor(p * 4)] }
 						})
 					}
 				>
 					Gain Experience
 				</button>
-				<TieredProgressBarComponent stepNumber={state.step} tiers={Tiers1} icon="circle" color="#13b06d" background="#87c5aa" />
+				<TieredProgressBarComponent
+					stepNumber={state.step}
+					tiers={Tiers1}
+					icon={state.theme.icon}
+					color={state.theme.primary}
+					background={state.theme.background}
+				/>
 			</React.Fragment>
 		)
 	}}
