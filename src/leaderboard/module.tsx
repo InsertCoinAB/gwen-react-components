@@ -1,9 +1,7 @@
 import React from "react"
 import styled, { DefaultTheme } from "styled-components"
-import { Input } from "../components/input"
 import { Switch } from "../components/switch"
 import { ModuleWrapper } from "../components/wrapper"
-import { Edit } from "../icons/edit"
 import { LeaderboardRow } from "../types"
 import { LeaderboardUserColumn } from "./column"
 import { LeaderboardList } from "./list"
@@ -18,18 +16,11 @@ export interface LeaderboardModuleProps {
 	translations: LeaderboardTranslation
 	timespan: "alltime" | "weekly"
 	select: (column: string, timespan: "alltime" | "weekly") => void
-	updateNickname?: (nickname: string) => void
-}
-type State = {
-	editing: boolean
-	editingNickname?: string
 }
 
-export class LeaderboardModule extends React.PureComponent<LeaderboardModuleProps, State> {
-	state: State = { editing: false }
-
+export class LeaderboardModule extends React.PureComponent<LeaderboardModuleProps> {
 	render() {
-		const { active, columns, select, timespan, translations, updateNickname, currentUser, leaderboard } = this.props
+		const { active, columns, select, timespan, translations, currentUser, leaderboard } = this.props
 		return (
 			<ModuleWrapper>
 				<Wrapper>
@@ -44,27 +35,8 @@ export class LeaderboardModule extends React.PureComponent<LeaderboardModuleProp
 					<BottomWrapper>
 						<PlayerScoreWrapper>
 							<b>{translations.myScore}:</b>
-							{updateNickname && (
-								<PlayerName>
-									<PlayerNameInput
-										data-cy="leaderboard-input-edit"
-										value={this.state.editingNickname}
-										disabled={!this.state.editing}
-										onChange={(event) => this.setState({ editingNickname: event.target.value })}
-										placeholder={translations.anonymous}
-									/>
-									{this.state.editing ? (
-										<EditButton data-cy="leaderboard-button-save" onClick={() => updateNickname(this.state.editingNickname || "")}>
-											<img src="https://gwen.insertcoin.se/widget/images/icons/save.svg" alt="checkmark" />
-										</EditButton>
-									) : (
-										<EditButton data-cy="leaderboard-button-edit" onClick={() => this.setState({ editing: true })}>
-											<Edit />
-										</EditButton>
-									)}
-									<span data-cy="leaderboard-current-user-score">{currentUser?.score ?? 0}</span>
-								</PlayerName>
-							)}
+							<PlayerName2>{currentUser?.nickname ?? "Anonymous"}</PlayerName2>
+							<PlayerPoints2 data-cy="leaderboard-current-user-score">{currentUser?.score ?? 0}</PlayerPoints2>
 						</PlayerScoreWrapper>
 						<TimeToggle>
 							<TimeToggleTitleLeft active={timespan === "alltime"}>{translations.alltime}</TimeToggleTitleLeft>
@@ -111,46 +83,6 @@ const PlayerScoreWrapper = styled.div`
 	}
 `
 
-const PlayerName = styled.div`
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: ${(p) => p.theme.proportions(40)}px;
-	padding: 0 ${(p) => p.theme.proportions(8)}px;
-	border: ${(p) => p.theme.gwen.border.textInput(p.theme.scale)};
-	background: ${(p) => p.theme.gwen.colors.background.header};
-	margin: 0 ${(p) => p.theme.proportions(12)}px 0 ${(p) => p.theme.proportions(20)}px;
-	flex: 1;
-	> span {
-		flex: 2;
-		padding-left: 10px;
-		text-align: center;
-		border-left: ${(p) => p.theme.gwen.border.textInput(p.theme.scale)};
-		line-height: ${(p) => p.theme.proportions(40)}px;
-	}
-`
-
-const EditButton = styled.div`
-	height: ${(p) => p.theme.proportions(40)}px;
-	width: ${(p) => p.theme.proportions(40)}px;
-	padding: ${(p) => p.theme.proportions(10)}px;
-	cursor: pointer;
-	> svg {
-		stroke: ${(p) => p.theme.gwen.colors.text.secondary};
-		fill: ${(p) => p.theme.gwen.colors.text.secondary};
-	}
-
-	&:hover {
-		> svg {
-			stroke: ${(p) => p.theme.gwen.colors.text.primary};
-			fill: ${(p) => p.theme.gwen.colors.text.primary};
-		}
-	}
-`
-
-const PlayerNameInput = styled(Input)``
-
 const TimeToggle = styled.div`
 	display: flex;
 	justify-content: center;
@@ -177,4 +109,15 @@ const TimeToggleTitleLeft = styled(TimeToggleTitle)`
 `
 const TimeToggleTitleRight = styled(TimeToggleTitle)`
 	left: 57%;
+`
+
+const PlayerName2 = styled.div`
+	width: 50%;
+	text-align: left;
+	padding: 0 ${(p) => p.theme.proportions(8)}px;
+`
+
+const PlayerPoints2 = styled.div`
+	width: 30%;
+	text-align: right;
 `
