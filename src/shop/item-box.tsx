@@ -61,6 +61,7 @@ const Icon = styled.div`
 
 const Price = styled.div`
 	display: flex;
+	height: 30px;
 	flex-direction: row;
 	align-items: center;
 	margin-bottom: 5px;

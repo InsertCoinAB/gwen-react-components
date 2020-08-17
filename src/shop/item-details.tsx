@@ -34,7 +34,9 @@ export const ShopItemDetails = (props: Props) => {
 
 const Wrapper = styled.div`
 	width: 100%;
+	height: 100%;
 	display: flex;
+	box-sizing: border-box;
 	flex-direction: column;
 	align-items: center;
 	user-select: none;
@@ -76,7 +78,7 @@ const Button = styled.div`
 	margin-bottom: 30px;
 	background: #ad75ff;
 	display: flex;
-	flex-direction: row;
+
 	align-items: center;
 	justify-content: center;
 	opacity: ${(props: ButtonProps) => (props.enabled ? 1 : 0.5)};
@@ -94,6 +96,7 @@ const Button = styled.div`
 		color: white;
 		font-size: 24px;
 		margin-right: 10px;
+		line-height: 30px;
 	}
 	> svg {
 		width: 30px;
