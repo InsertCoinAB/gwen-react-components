@@ -66,11 +66,12 @@ export class ProgressCircle extends React.PureComponent<ProgressCircleProps, Sta
 		const { avatar, className } = this.props as Required<ProgressCircleProps>
 		const { step, progress, shape, shine, shapeFade, stroke } = this.state
 		return (
-			<Wrapper className={className}>
+			<Wrapper data-cy="progress-circular" className={className}>
 				<Circle shine={shine}>
 					<ProgressMeter viewBox="-50 -50 100 100">
 						<circle r={this.RADIUS} fill="none" strokeWidth={5} stroke={stroke?.background} style={{ transition: "stroke 1s ease-in-out" }} />
 						<circle
+							data-cy="progress-circular-fill"
 							transform={`rotate(${90 + this.MISSING * 180})`}
 							r={this.RADIUS}
 							strokeWidth={5}

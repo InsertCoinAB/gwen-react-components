@@ -61,7 +61,7 @@ export class TieredProgressBar extends React.PureComponent<Props, State> {
 		>
 
 		return (
-			<Wrapper>
+			<Wrapper data-cy="tiered-progress-bar">
 				<IconWrapper animation={animation}>
 					<StepIcon step={stepNumber} shape={icon} />
 				</IconWrapper>
@@ -123,7 +123,7 @@ interface TierProps {
 const Tier = (props: TierProps) => {
 	return (
 		<TierWrapper color={props.background || "#C9C9C9"}>
-			<TierFiller color={props.color || "#0DC979"} width={Math.floor(props.progress * 100)} />
+			<TierFiller data-cy="tiered-progress-bar-fill" color={props.color || "#0DC979"} width={Math.floor(props.progress * 100)} />
 		</TierWrapper>
 	)
 }
