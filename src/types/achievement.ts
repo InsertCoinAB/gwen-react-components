@@ -10,7 +10,6 @@ export interface AchievementData {
 	readonly description: string
 	readonly icon?: string
 	readonly cta?: string
-	readonly metadata: string
 }
 
 export interface AchievementTierData {
