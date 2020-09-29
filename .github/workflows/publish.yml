@@ -29,9 +29,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Bump Version
-        run: npm version patch
-
       - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
