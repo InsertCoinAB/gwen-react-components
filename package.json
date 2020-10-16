@@ -28,7 +28,7 @@
 	},
 	"dependencies": {
 		"react": "^16.14.0",
-		"react-dom": "^16.13.1",
+		"react-dom": "^16.14.0",
 		"react-virtualized": "^9.22.2",
 		"styled-components": "5.2.0"
 	},
