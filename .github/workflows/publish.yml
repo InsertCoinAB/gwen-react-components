@@ -1,7 +1,7 @@
 name: Publish
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   publish:
@@ -31,8 +31,32 @@ jobs:
 
       - name: Publish
         env:
+          GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no"
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish
+          GITHUB_SSH_KEY: ${{ secrets.GWENNIFER_GITHUB_SSH_KEY }}
+        run: |
+          PACKAGE_VERSION=${GITHUB_REF/refs\/tags\/v}
+          echo $GITHUB_REF
+          echo "Releasing version $PACKAGE_VERSION"
+
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "${GITHUB_SSH_KEY}"
+
+          git config --global user.email "gwennifer@insertcoin.se"
+          git config --global user.name "Gwennifer"
+          git config --global pull.ff only
+
+          git remote remove origin
+          git remote add origin "git@github.com:${GITHUB_REPOSITORY}.git"
+          git fetch
+          git checkout master
+          git pull
+
+          yarn publish --new-version $PACKAGE_VERSION --no-git-tag-version
+
+          git add package.json
+          git commit -m "Package released => $PACKAGE_VERSION"
+          git push -u origin master
 
       - name: Notify Dependabot
         env:
