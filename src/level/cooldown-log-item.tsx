@@ -21,7 +21,7 @@ export class CooldownLogItem extends PureComponent<Props, State> {
 	constructor(props: Props) {
 		super(props)
 
-		this.interval = setInterval(() => {
+		this.interval = window.setInterval(() => {
 			const cooldown = props.data.cooldownInMS - Date.now() + new Date(props.data.lastReportedAt).getTime()
 			if (cooldown <= 0) {
 				clearInterval(this.interval)
@@ -35,7 +35,7 @@ export class CooldownLogItem extends PureComponent<Props, State> {
 	// eslint-disable-next-line camelcase
 	UNSAFE_componentWillReceiveProps(props: Props) {
 		clearInterval(this.interval)
-		this.interval = setInterval(() => {
+		this.interval = window.setInterval(() => {
 			const cooldown = props.data.cooldownInMS - Date.now() + new Date(props.data.lastReportedAt).getTime()
 			if (cooldown <= 0) {
 				clearInterval(this.interval)
