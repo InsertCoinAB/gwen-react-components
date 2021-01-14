@@ -15,6 +15,9 @@ export enum TeamCurrencyEnum {
 }
 export type TeamCurrency = keyof typeof TeamCurrencyEnum
 
-export type Currency = UserCurrency | TeamCurrency
+export type Currency = UserCurrency | TeamCurrency | string /* "string" here means: UUID of a character progression  */
+
+/* Only to be used in speciell locations where the hard coded currency values are to be referenced */
+export type CurrencyStrictLegacy = UserCurrency | TeamCurrency
 
 export type RewardIcons = Partial<Record<Currency, string>>

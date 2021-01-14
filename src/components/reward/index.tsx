@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Currency, RewardData } from "../../types"
+import { Currency, CurrencyStrictLegacy, RewardData } from "../../types"
 import { GenericTranslation } from "../translations"
 import { Reward } from "./wrapper"
 
@@ -24,7 +24,7 @@ export function Rewards(props: Props) {
 						amount={reward.amount}
 						type={reward.currency}
 						icon={props.icons && props.icons[reward.currency]}
-						description={props.translations[reward.currency]}
+						description={props.translations[reward.currency as CurrencyStrictLegacy]}
 					/>
 				))}
 			</Upgrade>
