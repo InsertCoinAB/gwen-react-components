@@ -5,6 +5,7 @@ export const ShopItemBoost = {
 	currency: "coin",
 	title: "Boost!",
 	description: "Get a boost!",
+	availability: {}
 }
 
 export const ShopItemShirt = {
@@ -14,6 +15,7 @@ export const ShopItemShirt = {
 	currency: "coin",
 	title: "Limited Edition Shirt",
 	description: "This shirt is limited edition. Get it before it is gone!",
+	availability: {}
 }
 
 export const ModuleShop = {

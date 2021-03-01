@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { rewardIcons } from "../icons/rewards"
 import { ModuleShopItem } from "../types"
 import { getShopIcon } from "./utils/icon"
+import { isAvailable } from "./utils/is-available"
 import { parseShopCurrency } from "./utils/parse-currency"
 
 interface Props {
@@ -12,8 +13,9 @@ interface Props {
 
 export const ShopItemBox = (props: Props) => {
 	const { data, openDetails } = props
+	const disabled = !isAvailable(data)
 	return (
-		<Wrapper onClick={() => openDetails(data)}>
+		<Wrapper disabled={disabled} onClick={() => openDetails(data)} title={disabled ? "Item unavailable" : ""}>
 			<Title>{data.title}</Title>
 			<Icon>
 				<img src={getShopIcon(data.imageUrl)} alt="shop-item-icon" />
@@ -26,10 +28,14 @@ export const ShopItemBox = (props: Props) => {
 	)
 }
 
+interface WrapperProps {
+	disabled: boolean
+}
+
 const Wrapper = styled.div`
 	flex: 1;
 	padding: 15px;
-	background: white;
+	opacity: ${({ disabled }: WrapperProps) => (disabled ? 0.5 : 1)};
 	border-radius: 15px;
 	display: flex;
 	flex-direction: column;
@@ -37,10 +43,14 @@ const Wrapper = styled.div`
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 	transition: box-shadow 0.2s ease-in-out;
 	user-select: none;
-	&:hover {
-		cursor: pointer;
-		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
-	}
+	cursor: pointer;
+	${({ disabled }: WrapperProps) =>
+		!disabled &&
+		`
+		&:hover {
+			box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+		}
+	`}
 `
 
 const Title = styled.span`

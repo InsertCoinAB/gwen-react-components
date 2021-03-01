@@ -5,6 +5,7 @@ import { ModuleShopItem, ShopData } from "../types"
 import { Color } from "../utils/color"
 import { userCanAfford } from "./utils/can-afford"
 import { getShopIcon } from "./utils/icon"
+import { isAvailable } from "./utils/is-available"
 import { parseShopCurrency } from "./utils/parse-currency"
 
 interface Props {
@@ -16,6 +17,7 @@ interface Props {
 export const ShopItemDetails = (props: Props) => {
 	const { data, shop, purchaseItem } = props
 	const canAfford = userCanAfford(data, shop)
+	const available = isAvailable(data)
 
 	return (
 		<Wrapper>
@@ -24,7 +26,12 @@ export const ShopItemDetails = (props: Props) => {
 				<img src={getShopIcon(data.imageUrl)} alt="details-shop-icon" />
 			</Icon>
 			<Description>{data.description}</Description>
-			<Button data-cy="purchase-button" enabled={canAfford} onClick={() => (canAfford ? purchaseItem(data.id) : {})}>
+			<Button
+				data-cy="purchase-button"
+				enabled={canAfford && available}
+				title={!available ? "Item unavailable" : ""}
+				onClick={() => (canAfford && available ? purchaseItem(data.id) : {})}
+			>
 				<span>{data.value}</span>
 				{rewardIcons[parseShopCurrency(data.currency)]()}
 			</Button>
