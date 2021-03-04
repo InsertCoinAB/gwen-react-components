@@ -7,7 +7,7 @@ module.exports = {
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-requiring-type-checking",
 		"google",
-		"prettier/@typescript-eslint",
+		"prettier",
 		"plugin:prettier/recommended",
 	],
 	env: { node: true, browser: true, jest: true },
