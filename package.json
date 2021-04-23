@@ -60,7 +60,7 @@
 		"prettier": "^2.2.1",
 		"react-docgen-typescript-loader": "^3.7.2",
 		"react-scripts": "4.0.3",
-		"trim-right": "^1.0.1",
+		"trim-right": "^2.0.0",
 		"typescript": "4.2.4"
 	}
 }
