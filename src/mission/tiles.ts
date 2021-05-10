@@ -69,9 +69,10 @@ export class Tiles {
 		let retries = 0
 		const maxSize = this.changeAt - (mission % this.changeAt)
 		do {
-			tile = this.currentTheme.foregroundTiles[
-				Math.floor(new SeedRandom(this.tiles.length + (retries ? 10000 + retries : 0)).random() * this.currentTheme.foregroundTiles.length)
-			]
+			tile =
+				this.currentTheme.foregroundTiles[
+					Math.floor(new SeedRandom(this.tiles.length + (retries ? 10000 + retries : 0)).random() * this.currentTheme.foregroundTiles.length)
+				]
 			retries++
 		} while (
 			tile.size > maxSize ||
