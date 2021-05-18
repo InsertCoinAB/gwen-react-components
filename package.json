@@ -40,7 +40,7 @@
 		"@babel/plugin-proposal-optional-chaining": "^7.14.2",
 		"@types/jest": "^26.0.23",
 		"@types/node": "^15.3.0",
-		"@types/react": "^17.0.5",
+		"@types/react": "^17.0.6",
 		"@types/react-dom": "^17.0.5",
 		"@types/react-virtualized": "^9.21.11",
 		"@types/styled-components": "^5.1.9",
