@@ -5,8 +5,22 @@ on: pull_request
 jobs:
   auto-approve:
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - uses: hmarr/auto-approve-action@v2.0.0
-        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+      - uses: hmarr/auto-approve-action@v2.1.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - uses: actions/github-script@v4.0.2
+        with:
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '@dependabot merge'
+            })
