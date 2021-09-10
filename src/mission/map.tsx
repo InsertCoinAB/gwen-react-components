@@ -64,43 +64,41 @@ export class MissionMap extends React.PureComponent<Props, State> {
 		const current = this.state.current || 1
 		const tiles = this.getTiles()
 		return (
-			tiles && (
-				<Wrapper>
-					<ScrollArrows {...this.state.scrollParams} />
-					<AutoSizer>
-						{({ height, width }) => (
-							<List
-								ref={this.list}
-								style={{ outline: "none", overflowY: "scroll", paddingRight: "20px", userSelect: "none" }}
-								containerStyle={{ width: `${width}px` }}
-								height={height}
-								rowHeight={width / 2}
-								width={width + 20}
-								rowCount={Math.max(current + 3, 6)}
-								onScroll={(scrollParams: ScrollParams) => this.setState({ scrollParams })}
-								overscanRowCount={10}
-								rowRenderer={(item) => {
-									const mission = Math.max(current + 2, 5) - item.index
-									return (
-										<CellMeasurer cache={cache} columnIndex={0} key={mission} parent={item.parent} rowIndex={item.index}>
-											<div style={item.style}>
-												<MissionMapTile
-													current={mission === (this.state.selected || current)}
-													mission={mission}
-													disabled={mission > current}
-													tiles={tiles}
-													select={(m) => this.select(m)}
-													height={width / 2}
-												/>
-											</div>
-										</CellMeasurer>
-									)
-								}}
-							/>
-						)}
-					</AutoSizer>
-				</Wrapper>
-			)
+			<Wrapper>
+				<ScrollArrows {...this.state.scrollParams} />
+				<AutoSizer>
+					{({ height, width }) => (
+						<List
+							ref={this.list}
+							style={{ outline: "none", overflowY: "scroll", paddingRight: "20px", userSelect: "none" }}
+							containerStyle={{ width: `${width}px` }}
+							height={height}
+							rowHeight={width / 2}
+							width={width + 20}
+							rowCount={Math.max(current + 3, 6)}
+							onScroll={(scrollParams: ScrollParams) => this.setState({ scrollParams })}
+							overscanRowCount={10}
+							rowRenderer={(item) => {
+								const mission = Math.max(current + 2, 5) - item.index
+								return (
+									<CellMeasurer cache={cache} columnIndex={0} key={mission} parent={item.parent} rowIndex={item.index}>
+										<div style={item.style}>
+											<MissionMapTile
+												current={mission === (this.state.selected || current)}
+												mission={mission}
+												disabled={mission > current}
+												tiles={tiles}
+												select={(m) => this.select(m)}
+												height={width / 2}
+											/>
+										</div>
+									</CellMeasurer>
+								)
+							}}
+						/>
+					)}
+				</AutoSizer>
+			</Wrapper>
 		)
 	}
 }

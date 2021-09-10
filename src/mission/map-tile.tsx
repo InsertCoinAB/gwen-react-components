@@ -7,7 +7,7 @@ interface Props {
 	current: boolean
 	mission: number
 	disabled: boolean
-	tiles: Tiles
+	tiles?: Tiles
 	select: (mission: number) => void
 	height: number
 }
@@ -25,11 +25,12 @@ export class MissionMapTile extends React.PureComponent<Props> {
 		const start = this.calculatePosition(missionNumber)
 		const end = this.calculatePosition(missionNumber + 1)
 
-		const foregroundTile = this.props.tiles.foreground(missionNumber)
+		const backgroundTile = this.props.tiles?.background(missionNumber)
+		const foregroundTile = this.props.tiles?.foreground(missionNumber)
 		return (
-			<>
-				<BackgroundTile src={this.props.tiles.background(missionNumber)} />
-				{foregroundTile && <ForegroundTile src={this.props.tiles.foreground(missionNumber)} />}
+			<Wrapper>
+				{backgroundTile && <BackgroundTile src={backgroundTile} />}
+				{foregroundTile && <ForegroundTile src={foregroundTile} />}
 				{missionNumber > 0 && (
 					<>
 						<MissionPath width="100%" height={`${this.props.height / 1.9}px`} viewBox="0 0 400 100" preserveAspectRatio="none">
@@ -54,7 +55,7 @@ export class MissionMapTile extends React.PureComponent<Props> {
 						</Dot>
 					</>
 				)}
-			</>
+			</Wrapper>
 		)
 	}
 }
@@ -65,6 +66,12 @@ const MissionPath = styled.svg`
 	z-index: 3;
 	filter: ${(p) => `drop-shadow(0 2px 2px ${p.theme.gwen.boxShadow.color})`};
 	overflow: visible;
+`
+
+const Wrapper = styled.div`
+	width: 100%;
+	height: 100%;
+	background: lightgrey;
 `
 
 interface DotType {
