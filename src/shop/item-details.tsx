@@ -6,7 +6,6 @@ import { Color } from "../utils/color"
 import { userCanAfford } from "./utils/can-afford"
 import { getShopIcon } from "./utils/icon"
 import { isAvailable } from "./utils/is-available"
-import { parseShopCurrency } from "./utils/parse-currency"
 
 interface Props {
 	data: ModuleShopItem
@@ -33,7 +32,7 @@ export const ShopItemDetails = (props: Props) => {
 				onClick={() => (canAfford && available ? purchaseItem(data.id) : {})}
 			>
 				<span>{data.value}</span>
-				{rewardIcons[parseShopCurrency(data.currency)]()}
+				{rewardIcons["coin"]()}
 			</Button>
 		</Wrapper>
 	)

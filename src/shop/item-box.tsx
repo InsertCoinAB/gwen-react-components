@@ -4,7 +4,6 @@ import { rewardIcons } from "../icons/rewards"
 import { ModuleShopItem } from "../types"
 import { getShopIcon } from "./utils/icon"
 import { isAvailable } from "./utils/is-available"
-import { parseShopCurrency } from "./utils/parse-currency"
 
 interface Props {
 	data: ModuleShopItem
@@ -22,7 +21,7 @@ export const ShopItemBox = (props: Props) => {
 			</Icon>
 			<Price>
 				<span>{data.value}</span>
-				{rewardIcons[parseShopCurrency(data.currency)]()}
+				{rewardIcons["coin"]()}
 			</Price>
 		</Wrapper>
 	)

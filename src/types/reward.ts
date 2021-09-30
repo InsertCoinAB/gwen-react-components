@@ -6,7 +6,6 @@ export interface RewardData {
 export enum UserCurrencyEnum {
 	"xp",
 	"coin",
-	"vipcurrency",
 }
 export type UserCurrency = keyof typeof UserCurrencyEnum
 

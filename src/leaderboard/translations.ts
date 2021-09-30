@@ -22,8 +22,6 @@ const ScoreTranslations: Record<LeaderboardUserColumn, string> = {
 	missionObjectivesCompleted: "Mission Objectives Completed",
 	missionsCompleted: "Missions Completed",
 	shopItemsPurchased: "Shop Items Purchased",
-	vipcurrencyGained: "VIP Currency Gained",
-	vipcurrencySpent: "VIP Currency Spent",
 	xpGained: "XP Gained",
 	teamXpGained: "Team XP Gained",
 }

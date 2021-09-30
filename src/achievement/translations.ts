@@ -5,7 +5,6 @@ export interface AchievementTranslation {
 	rewards: string
 	experience: string
 	coins: string
-	vipCurrency: string
 }
 
 export const AchievementTranslations: AchievementTranslation = {
@@ -15,5 +14,4 @@ export const AchievementTranslations: AchievementTranslation = {
 	rewards: "Rewards",
 	experience: "Experience",
 	coins: "Coins",
-	vipCurrency: "Crystals",
 }
