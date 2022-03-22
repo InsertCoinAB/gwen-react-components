@@ -11,7 +11,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
