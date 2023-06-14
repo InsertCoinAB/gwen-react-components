@@ -15,15 +15,18 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 10
 
   - package-ecosystem: "npm"
     directory: "/"
     registries: "*"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 10
 
   - package-ecosystem: "docker"
     registries: "*"
     directory: "/"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 10
