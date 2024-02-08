@@ -17,7 +17,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-node-
 
-      - uses: actions/setup-node@v3.6.0
+      - uses: actions/setup-node@v4.0.2
 
       - name: Install
         run: yarn install
